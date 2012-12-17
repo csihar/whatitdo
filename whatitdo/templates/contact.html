@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="buttonbar">
+{% if not user.is_authenticated %}
+	<img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv">
+	<img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies">
+	<img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books">
+	<img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games">
+	<img src="{{STATIC_URL}}music.png" class="buttonoff" alt="music">
+{% else %}
+	<a href="/~{{user.username}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv"></a>
+	<a href="/~{{user.username}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies"></a>
+	<a href="/~{{user.username}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books"></a>
+	<a href="/~{{user.username}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games"></a>
+	<a href="/~{{user.username}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" alt="music"></a>
+{% endif %}
+</div>
+
+
+
+<div class="list">
+<h3>
+<div class="alignleft">contact</div>
+</h3>
+<div class="nontable">
+<p style="margin-right:40%;text-align:right;">Questions? Comments? Problems? Let us know!</p><br />
+<div class="inputarea">
+
+  <form action="" method="post">{% csrf_token %}
+    <p>{{ form.errors }}</p>
+		{{form.as_p}}
+
+	<p><input name="submit" value="Send" type="submit" />
+
+	</form>
+</div>
+
+</div>
+{% endblock %}

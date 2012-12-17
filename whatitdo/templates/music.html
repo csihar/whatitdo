@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="buttonbar">
+	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv"></a>
+	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies"></a>
+	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books"></a>
+	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games"></a>
+	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonon" alt="music"></a>
+</div>
+
+
+
+<div class="list">
+<h3>
+<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : music</div>
+{% if user.username == listowner %}
+<div class="alignright"><a href="/~{{listowner}}/music/new" style="color:#eee;">[+]</a></div>
+{% endif %}
+</h3>
+
+{% if not musiclist %}
+<div class="nontable">
+<h5>
+Nothing here yet! {% if user.username == listowner %}<a href="/~{{listowner}}/music/new">[Add an item]</a>{% endif %}
+</h5>
+</div>
+{% else %}
+
+<table>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Artist</th>
+<th>Type</th>
+<th align="center">Rating</th>
+<th>Comment</th>
+</tr>
+{% for item in musiclist %}
+<tr>
+<td style="width:20px;">{{ forloop.counter }}</td>
+	{% if user.username == listowner %}
+	<td style="width:30%;"><a href="/~{{listowner}}/music/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/music/del/{{item.id}}" class="alignright">[x]</a></span></td>
+	{% else %}
+	<td style="width:30%;">{{ item.name }}</a></td>
+	{% endif %}
+<td style="width:20%;">{{ item.artist }}</td>
+<td style="width:120px;">{{ item.type }}</td>
+{% if not item.rating %}
+<td style="width:46px;" align="center">--</td>
+{% else %}
+<td style="width:46px;" align="center">{{ item.rating }}</td>
+{% endif %}
+<td style="min-width:125px;">{{ item.comment }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+</div>
+{% endblock %}

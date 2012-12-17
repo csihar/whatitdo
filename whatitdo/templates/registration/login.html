@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="buttonbar">
+	<img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv">
+	<img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies">
+	<img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books">
+	<img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games">
+	<img src="{{STATIC_URL}}music.png" class="buttonoff" alt="music">
+</div>
+
+
+
+<div class="list">
+<h3>
+<div class="alignleft">login</div>
+</h3>
+<div class="nontable">
+	<div class="inputarea">
+{% if form.errors %}
+    <p class="error">Sorry, that's not a valid username/password combination.</p>
+  {% endif %}
+
+  <form action="" method="post">{% csrf_token %}
+    <p><label for="username">Username:</label>
+    <input type="text" name="username" value="" id="username"></p>
+    <p><label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password"></p>
+	<p><a href="/accounts/reset_password/"><small>Forgot password?</small></a></p>
+
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="redirect" />
+  </form>
+  </div>
+</div>
+{% endblock %}

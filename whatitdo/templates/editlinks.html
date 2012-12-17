@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="buttonbar">
+	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv"></a>
+	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies"></a>
+	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books"></a>
+	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games"></a>
+	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" alt="music"></a>
+</div>
+
+
+
+<div class="list">
+<h3>
+<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : edit links</div>
+</h3>
+<div class="nontable">
+<p class="inputcomment">Add up to 3 links to your other profiles (Twitter, Facebook, etc).<br />
+Max length: 100 characters. Please use full URLs ("http://...")</p>
+<div class="inputarea">
+<p><br />New links:</p>       
+  <form action="" method="post">{% csrf_token %}
+		{{form.as_p}}
+
+	<p><input name="submit" value="Save" type="submit" />
+
+<p><br />Current links:</p>
+<ol>
+<li><a href="{{ currentlink1 }}">{{ currentlink1 }}</a>{% if not currentlink1 %}[none]{% endif %}</li>
+<li><a href="{{ currentlink2 }}">{{ currentlink2 }}</a>{% if not currentlink2 %}[none]{% endif %}</li>
+<li><a href="{{ currentlink3 }}">{{ currentlink3 }}</a>{% if not currentlink3 %}[none]{% endif %}</li>
+</ol>
+
+	</form>
+</div>
+
+</div>
+{% endblock %}

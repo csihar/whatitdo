@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="buttonbar">
+	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" alt="tv"></a>
+	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" alt="movies"></a>
+	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" alt="books"></a>
+	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" alt="games"></a>
+	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" alt="music"></a>
+</div>
+
+
+
+<div class="list">
+<h3>
+<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : home</div>
+</h3>
+<div class="nontable">
+<img src="{{MEDIA_URL}}{{userpic}}" alt="userpic" id="userpic">
+<h5>
+tv: <span class="green">{{tvsize}}</span><br />
+movies: <span class="green">{{moviesize}}</span><br />
+books: <span class="green">{{booksize}}</span><br />
+games: <span class="green">{{gamesize}}</span><br />
+music: <span class="green">{{musicsize}}</span><br />
+</h5>
+<p style="clear:both;"><em>Last online: {{ lastlogin }}</em></p>
+<p style="clear:both;"><em>User since: {{ datejoined }}</em></p>
+
+{% if link1 or link2 or link3 %}
+<hr />
+<p>External links:</p>{% endif %}
+<big>
+{% if link1 %}<p style="clear:both;"><a href="{{ link1 }}">{{ link1 }}</a></p>{% endif %}
+{% if link2 %}<p style="clear:both;"><a href="{{ link2 }}">{{ link2 }}</a></p>{% endif %}
+{% if link3 %}<p style="clear:both;"><a href="{{ link3 }}">{{ link3 }}</a></p>{% endif %}
+</big>
+
+
+
+
+{% if user.is_authenticated %}
+{% if user.username == listowner %}
+<div class="rightbox">
+<p><a href="/~{{ listowner }}/listsort">Customize list sorting</a></p>
+<p><a href="/~{{ listowner }}/editlinks">Edit external links</a></p>
+<p><a href="/~{{ listowner }}/userpic">Change userpic</a></p>
+<p><a href="/accounts/change_password/">Change password</a></p>
+<p><a href="/contact/">Contact admins</a></p>
+<br /><br />
+<p>Copy and paste these links to share your lists:</p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}" /></p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}/tv" /></p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}/movies" /></p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}/books" /></p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}/games" /></p>
+<p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.heroku.com/~{{listowner}}/music" /></p>
+
+
+</div>
+{% endif %}
+{% endif %}
+</div>
+{% endblock %}
