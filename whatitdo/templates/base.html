@@ -19,10 +19,9 @@
 	}
 
 	body {
-		margin: 0px;
-		margin-left:auto;
-		margin-right:auto;
-		padding: 0px;
+		margin: 0 auto 20px auto;
+		border:0;
+		padding: 0;
 		text-align: center;
 	}
 
@@ -63,14 +62,12 @@
 		left: 185px;
 		min-width: 750px;
 		min-height: 458px;
-		max-height:78%;
 		background-image:url('{{STATIC_URL}}bglite.png');
 		-moz-border-radius: 15px;
 		border-radius: 15px;
 		border: 1px solid #ddd;
-		margin: 0;
+		margin: 0 0 20px 0;
 		padding: 15px;
-		overflow:auto;
 		}
 
 	table {
@@ -317,5 +314,6 @@
 </div>
 {% block body %}
 {% endblock %}
+</div>
 </body>
 </html>
