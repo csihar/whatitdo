@@ -7,9 +7,6 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('kyle', 'ksanderspdx@gmail.com'),
-)
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
@@ -113,11 +110,6 @@ INSTALLED_APPS = (
 	'whatitdo',
 )
 
-APPEND_SLASH = True
-
-LOGIN_URL = '/accounts/login/'
-AUTH_PROFILE_MODULE = 'items.userprofile'
-
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -148,7 +140,23 @@ LOGGING = {
     }
 }
 
+
+APPEND_SLASH = True
+
+LOGIN_URL = '/accounts/login/'
+
+AUTH_PROFILE_MODULE = 'items.userprofile'
+
+# -- Heroku database setting: ---
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+
+
 # Settings defined in localsettings:
+#	ADMINS = (('name', 'email'),)
+#
 #	EMAIL_USE_TLS = 
 #	EMAIL_HOST = ''
 #	EMAIL_PORT = 
@@ -157,12 +165,12 @@ LOGGING = {
 #
 #	DATABASES = {
 #	    'default': {
-#	        'ENGINE': '',                    # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#	        'NAME': '',                      # Or path to database file if using sqlite3.
-#	        'USER': '',                      # Not used with sqlite3.
-#	        'PASSWORD': '',                  # Not used with sqlite3.
-#	        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-#	        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+#	        'ENGINE': '',
+#	        'NAME': '',
+#	        'USER': '',
+#	        'PASSWORD': '',
+#	        'HOST': '',
+#	        'PORT': '',
 #	    }
 #	}
 #	
