@@ -15,4 +15,4 @@ The user's homepage allows for the uploading of a user icon (resized to 100x100p
 Note that all lists and user profiles are visible to the public, but can only be edited by the user who created them. Email addresses are not visible and are only used for password resetting purposes.
 
 
-DISCLAIMER: what.it.do is open-source, but at present it is not really designed to be reused. You may use the source code for whatever purposes you like if you, but be aware that I was essentially learning Django/Python from scratch while writing what.it.do so you may find much of the code to be rather inelegant, to say the least; use at your own risk. That said, I welcome any suggestions or critiques from more experienced coders!
+DISCLAIMER: what.it.do is open-source, but at present it is not really designed to be reused. You may use the source code for whatever purposes you like if you, but be aware that I was essentially learning Django/Python from scratch while writing what.it.do so you may find much of the code to be rather inelegant, to say the least -- use at your own risk. That said, I welcome any suggestions or critiques from more experienced coders!
