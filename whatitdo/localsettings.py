@@ -8,10 +8,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'whatitdo.bot@gmail.com'
 EMAIL_HOST_PASSWORD = 'w4t1td0b0t'
 
-''' <db settings for dev>
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wid_db',                      # Or path to database file if using sqlite3.
         'USER': 'whatitdo',                      # Not used with sqlite3.
         'PASSWORD': 'w4t1td0',                  # Not used with sqlite3.
@@ -19,7 +18,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-'''
+
 
 AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = 'AKIAJ7PXE26XGHMH4RUQ'
