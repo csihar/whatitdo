@@ -16,7 +16,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'whatitdo.bot@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD'] #'w4t1td0b0t'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 TIME_ZONE = 'America/Los_Angeles'
 
@@ -42,8 +42,8 @@ DATABASES = {
 
 # Amazon S3 settings for static and media files
 AWS_QUERYSTRING_AUTH = False
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] #'AKIAJ7PXE26XGHMH4RUQ'
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] #'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'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'whatitdo'
 AWS_S3_FILE_OVERWRITE = True
 AWS_LOCATION = '/media'
