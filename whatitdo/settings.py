@@ -1,50 +1,64 @@
 # Django settings for whatitdo project.
 import os
-from localsettings import *
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+ADMINS = (
+    ('kyle', 'ksanderspdx@gmail.com'),
+)
+
 MANAGERS = ADMINS
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# In a Windows environment this must be set to your system time zone.
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'whatitdo.bot@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD'] #'w4t1td0b0t'
+
 TIME_ZONE = 'America/Los_Angeles'
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
 USE_I18N = True
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
 USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# Local database settings for dev. Overridden by Heroku db settings at bottom.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wid_db',
+        'USER': 'whatitdo',
+        'PASSWORD': 'w4t1td0',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+# Amazon S3 settings for static and media files
+AWS_QUERYSTRING_AUTH = False
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID'] #'AKIAJ7PXE26XGHMH4RUQ'
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY'] #'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'
+AWS_STORAGE_BUCKET_NAME = 'whatitdo'
+AWS_S3_FILE_OVERWRITE = True
+AWS_LOCATION = '/media'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+MEDIA_URL = 'http://s3.amazonaws.com/whatitdo/media/'
+STATIC_URL = 'http://s3.amazonaws.com/whatitdo/static/'
 MEDIA_ROOT = '/media/'
 STATIC_ROOT = '/static/'
 
-# Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     '/static/',
 )
 
-# List of finder classes that know how to find static files in
-# various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -54,7 +68,6 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'abtg(xgidmdcnq!k3+8d)gi&amp;o%so!3$0x(0n-c)r_+@0y-s^(#'
 
-# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -73,19 +86,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'whatitdo.urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'whatitdo.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    #'C:/www/whatitdo/templates',
 	os.path.join(SITE_ROOT, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-	'django.contrib.auth.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
@@ -103,19 +111,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-	'registration',
-	'storages',
-	'easy_thumbnails',
-	'items',
-	'whatitdo',
+    'registration',
+    'storages',
+    'easy_thumbnails',
+    'items',
+    'whatitdo',
 )
 
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -154,34 +157,7 @@ DATABASES['default'] =  dj_database_url.config()
 
 
 
-# Settings defined in localsettings:
-#	ADMINS = (('name', 'email'),)
-#
-#	EMAIL_USE_TLS = 
-#	EMAIL_HOST = ''
-#	EMAIL_PORT = 
-#	EMAIL_HOST_USER = ''
-#	EMAIL_HOST_PASSWORD = ''
-#
-#	DATABASES = {
-#	    'default': {
-#	        'ENGINE': '',
-#	        'NAME': '',
-#	        'USER': '',
-#	        'PASSWORD': '',
-#	        'HOST': '',
-#	        'PORT': '',
-#	    }
-#	}
-#	
-#	AWS_QUERYSTRING_AUTH = 
-#	AWS_ACCESS_KEY_ID = ''
-#	AWS_SECRET_ACCESS_KEY = ''
-#	AWS_STORAGE_BUCKET_NAME = ''
-#	AWS_S3_FILE_OVERWRITE = 
-#	AWS_LOCATION = ''
-#	
-#	STATICFILES_STORAGE = ''
-#	DEFAULT_FILE_STORAGE = ''
-#	MEDIA_URL = ''
-#	STATIC_URL = ''
+# Settings defined in environment variables:
+# EMAIL_HOST_PASSWORD
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
