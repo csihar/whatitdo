@@ -18,17 +18,19 @@
 {% if not user.username == listowner %}
 <h4>Sorry, you're not allowed to edit that item.</h4>
 {% else %}
-<div class="inputarea">
 
-
-
-    {{ form.non_field_errors }}
 {% if item_to_edit %}
+
 {% if item_to_edit.created %}
 <p class="inputcomment"><em>Item created: {{item_to_edit.created}}</em></p>{% endif %}
 {% if item_to_edit.modified %}
 <p class="inputcomment"><em>Last modified: {{item_to_edit.modified}}</em></p>{% endif %}
 
+<div class="inputarea">
+
+
+
+    {{ form.non_field_errors }}
 
 <form action="/~{{listowner}}/tv/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
 	<input type="hidden" name="id" value="{{item_to_edit.id}}" />
