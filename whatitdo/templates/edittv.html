@@ -19,19 +19,16 @@
 <h4>Sorry, you're not allowed to edit that item.</h4>
 {% else %}
 
-{% if item_to_edit %}
-
 {% if item_to_edit.created %}
-<p class="inputcomment"><em>Item created: {{item_to_edit.created}}</em></p>{% endif %}
+<p class="inputcomment">Item created: <em>{{item_to_edit.created}}</em></p>{% endif %}
 {% if item_to_edit.modified %}
-<p class="inputcomment"><em>Last modified: {{item_to_edit.modified}}</em></p>{% endif %}
+<p class="inputcomment">Last modified: <em>{{item_to_edit.modified}}</em></p>{% endif %}
 
 <div class="inputarea">
 
 
-
     {{ form.non_field_errors }}
-
+{% if item_to_edit %}
 <form action="/~{{listowner}}/tv/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
 	<input type="hidden" name="id" value="{{item_to_edit.id}}" />
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
