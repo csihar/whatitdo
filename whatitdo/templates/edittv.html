@@ -24,6 +24,12 @@
 
     {{ form.non_field_errors }}
 {% if item_to_edit %}
+{% if item_to_edit.created %}
+<p class="inputcomment"><em>Item created: {{item_to_edit.created}}</em></p>{% endif %}
+{% if item_to_edit.modified %}
+<p class="inputcomment"><em>Last modified: {{item_to_edit.modified}}</em></p>{% endif %}
+
+
 <form action="/~{{listowner}}/tv/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
 	<input type="hidden" name="id" value="{{item_to_edit.id}}" />
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
@@ -72,9 +78,6 @@
         <label for="id_comment">Comment:</label>
 		{{ form.comment }}
 	</div>
-
-<p class="inputcomment"><em>Item created: {{item_to_edit.created}}</em></p>
-<p class="inputcomment"><em>Last modified: {{item_to_edit.modified}}</em></p>
 
 
     <p><input type="submit" value="Save" /></p>
