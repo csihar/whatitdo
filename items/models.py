@@ -53,6 +53,10 @@ class UserProfile(models.Model):
         ('-finished','-finished'),
         ('rating','rating'),
         ('-rating','-rating'),
+        ('created','created'),
+        ('-created','-created'),
+        ('modified','modified'),
+        ('-modified','-modified'),
         ('comment','comment'),
     )
     user = models.OneToOneField(User)

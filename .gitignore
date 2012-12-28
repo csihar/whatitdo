@@ -1,5 +1,5 @@
-localsettings.py
-
+*.py~
+*.html~
 
 ############
 ## Windows
