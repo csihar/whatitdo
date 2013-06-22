@@ -77,9 +77,9 @@ STATICFILES_DIRS = (
 )
 
 #switches to local static files during development
-if DEBUG:
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static'),)
+#if DEBUG:
+#    STATIC_URL = '/static/'
+#    STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static'),)
 
 
 STATICFILES_FINDERS = (
