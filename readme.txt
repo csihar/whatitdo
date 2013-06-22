@@ -9,14 +9,12 @@ An example profile can be seen here:   < http://whatitdo.herokuapp.com/~oz >
 
 
 All design and coding by Kyle Sanders  < ksanderspdx (at) gmail.com > 
-
-This is really just a project I've been using to learn some new skills and practice my old ones.
 I welcome any and all feedback, questions, job offers, etc.
 
 
 
 
 Incorporates elements from:
-	Free Icon Set by WPZOOM            < http://www.wpzoom.com/ >
-	Formalize                          < http://formalize.me/ >
+    Free Icon Set by WPZOOM            < http://www.wpzoom.com/ >
+    Formalize                          < http://formalize.me/ >
     Eric Meyer's CSS Reset             < http://meyerweb.com/eric/tools/css/reset/ >
