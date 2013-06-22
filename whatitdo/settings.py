@@ -25,7 +25,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['whatitdo.herokuapp.com']
 if DEBUG:
     ALLOWED_HOSTS = ['']
 
