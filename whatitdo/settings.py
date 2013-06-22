@@ -175,6 +175,7 @@ AUTH_PROFILE_MODULE = 'items.userprofile'
 
 # -- Heroku database setting: ---
 # Parse database configuration from $DATABASE_URL
+import dj_database_url
 try:  
    if os.environ['DATABASE_URL']:
         DATABASES['default'] =  dj_database_url.config()
