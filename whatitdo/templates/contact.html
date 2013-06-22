@@ -1,32 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="buttonbar">
-{% if not user.is_authenticated %}
-	<img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv">
-	<img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies">
-	<img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books">
-	<img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games">
-	<img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music">
-{% else %}
-	<a href="/~{{user.username}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-	<a href="/~{{user.username}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{user.username}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{user.username}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{user.username}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
-{% endif %}
-</div>
-
-
-
 <div class="list">
 <h3>
 <div class="alignleft">contact</div>
 </h3>
 <div class="nontable">
-<p style="margin-right:40%;text-align:right;">Questions? Comments? Problems? Let us know!</p><br />
 <div class="inputarea">
 
-  <form action="" method="post">{% csrf_token %}
+  <form action="" method="post" id="contactform">{% csrf_token %}
+<p class="inputcomment">Questions? Comments? Problems? Let us know!</p>
     <p>{{ form.errors }}</p>
 		{{form.as_p}}
 

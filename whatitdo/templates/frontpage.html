@@ -1,39 +1,22 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="buttonbar">
-{% if not user.is_authenticated %}
-	<img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv">
-	<img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies">
-	<img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books">
-	<img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games">
-	<img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music">
-{% else %}
-	<a href="/~{{user.username}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-	<a href="/~{{user.username}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{user.username}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{user.username}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{user.username}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
-{% endif %}
-</div>
-
-
-
 <div class="list">
-<h3>
-<div class="alignleft">welcome!</div>
-</h3>
-<div class="nontable"><h4><br /><p>
-<span style="font-weight:bold;letter-spacing:-1px;">what<span class="green">.</span>it<span class="green">.</span>do</span> <span style="font-size:17px">is a tool to help you organize the things you love.<br /><br />
-Catalog your collections, rate your favorites, keep track of your progress, and share your lists with your friends!</span></p><br /><br />
+		<h3>
+		<div class="alignleft">welcome!</div>
+		</h3>
+	<div class="nontable"><h4><br /><p id="splash">
+		<strong>what<em>.</em>it<em>.</em>do</strong>&nbsp; is a tool to help you organize the things you love.<br /><br />
+	Catalog your collections, rate your favorites, keep track of your progress, and share your lists with your friends!</p><br /><br /><br />
 {% if not user.is_authenticated %}
-<p>[ <a href="/accounts/login/">login</a> ] or [ <a href="/accounts/register/">create an account</a> ]
+		<p>[&nbsp;<a href="/accounts/login/">login</a>&nbsp;] or [&nbsp;<a href="/accounts/register/">create an account</a>&nbsp;]</p>
 
 {% else %}
-<p class="green">&lt; &lt; &lt; [Click on a list icon to get started.]</p>
+		<p>[&nbsp;<a href="/~{{user.username}}">home</a>&nbsp;] [&nbsp;<a href="/~{{user.username}}/tv">tv</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/movies">movies</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/books">books</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/games">games</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/music">music</a>&nbsp;]</p>
 {% endif %}
 
-<div id="home_footer">
-Version 1.0b // Powered by <a href="https://www.djangoproject.com/" target="_blank">Django</a> + <a href="http://www.heroku.com/" target="_blank">Heroku</a> // <a href="/contact/">Contact</a>
-</div>
+		<div id="home_footer">
+		<a href="http://www.github.com/csihar/whatitdo" target="_blank">version 1.0</a> // <a href="/contact/">contact</a>
+		</div>
+	</div>
 </div>
 {% endblock %}

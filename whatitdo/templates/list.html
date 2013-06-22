@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="list">
+
+<h3>
+<div class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : {{current}}</div>
+
+{% if user.username == listowner %}
+<a href="/~{{listowner}}/{{current}}/new"><div class="alignright" id="newbutton">+</div></a>
+{% endif %}
+</h3>
+
+
+
+{% if tvlist %}
+
+<section id="tvlist">
+<div class="listrow">
+<div class="listhead numcol">#</div>
+<div class="listhead namecol">Name</div>
+<div class="listhead typecol">Type</div>
+<div class="listhead artistcol">Studio</div>
+<div class="listhead progcol">Progress</div>
+<div class="listhead ratingcol">Rating</div>
+<div class="listhead morecol">...</div>
+</div>
+{% for item in tvlist %}
+<div class="listrow">
+<div class="listcell numcol">{{ forloop.counter }}</div>
+	{% if user.username == listowner %}
+	<div class="listcell namecol"><a href="/~{{listowner}}/{{current}}/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/{{current}}/del/{{item.id}}" class="alignright">&times;</a></span></div>
+	{% else %}
+	<div class="listcell namecol">{{ item.name }}</a></div>
+	{% endif %}
+<div class="listcell typecol">{{ item.type }}</div>
+<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
+{% if not item.rating %}
+<div class="listcell ratingcol">--</div>
+{% else %}
+<div class="listcell ratingcol">{{ item.rating }}</div>
+{% endif %}
+<div class="listcell morecol"><div class="arrow"></div></div>
+<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+</div>
+{% endfor %}
+</section>
+
+
+
+{% elif movielist %}
+
+<section id="movielist">
+<div class="listrow">
+<div class="listhead numcol">#</div>
+<div class="listhead namecol">Name</div>
+<div class="listhead typecol">Type</div>
+<div class="listhead artistcol">Studio</div>
+<!-- <div class="listhead progcol">Progress</div> -->
+<div class="listhead ratingcol">Rating</div>
+<div class="listhead morecol">...</div>
+</div>
+{% for item in movielist %}
+<div class="listrow">
+<div class="listcell numcol">{{ forloop.counter }}</div>
+	{% if user.username == listowner %}
+	<div class="listcell namecol"><a href="/~{{listowner}}/{{current}}/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/{{current}}/del/{{item.id}}" class="alignright">&times;</a></span></div>
+	{% else %}
+	<div class="listcell namecol">{{ item.name }}</a></div>
+	{% endif %}
+<div class="listcell typecol">{{ item.type }}</div>
+<div class="listcell artistcol">{{ item.artist }}</div>
+<!-- <div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div> -->
+{% if not item.rating %}
+<div class="listcell ratingcol">--</div>
+{% else %}
+<div class="listcell ratingcol">{{ item.rating }}</div>
+{% endif %}
+<div class="listcell morecol"><div class="arrow"></div></div>
+<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+</div>
+{% endfor %}
+</section>
+
+
+
+{% elif booklist %}
+
+<section id="booklist">
+<div class="listrow">
+<div class="listhead numcol">#</div>
+<div class="listhead namecol">Name</div>
+<div class="listhead artistcol">Author</div>
+<div class="listhead typecol">Type</div>
+<div class="listhead progcol">Progress</div>
+<div class="listhead ratingcol">Rating</div>
+<div class="listhead morecol">...</div>
+</div>
+{% for item in booklist %}
+<div class="listrow">
+<div class="listcell numcol">{{ forloop.counter }}</div>
+	{% if user.username == listowner %}
+	<div class="listcell namecol"><a href="/~{{listowner}}/{{current}}/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/{{current}}/del/{{item.id}}" class="alignright">&times;</a></span></div>
+	{% else %}
+	<div class="listcell namecol">{{ item.name }}</a></div>
+	{% endif %}
+<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell typecol">{{ item.type }}</div>
+<div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
+{% if not item.rating %}
+<div class="listcell ratingcol">--</div>
+{% else %}
+<div class="listcell ratingcol">{{ item.rating }}</div>
+{% endif %}
+<div class="listcell morecol"><div class="arrow"></div></div>
+<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+</div>
+{% endfor %}
+</section>
+
+
+
+{% elif gamelist %}
+
+<section id="gamelist">
+<div class="listrow">
+<div class="listhead numcol">#</div>
+<div class="listhead namecol">Name</div>
+<div class="listhead artistcol">Platform</div>
+<div class="listhead typecol">Type</div>
+<div class="listhead progcol">Progress</div>
+<div class="listhead ratingcol">Rating</div>
+<div class="listhead morecol">...</div>
+</div>
+{% for item in gamelist %}
+<div class="listrow">
+<div class="listcell numcol">{{ forloop.counter }}</div>
+	{% if user.username == listowner %}
+	<div class="listcell namecol"><a href="/~{{listowner}}/{{current}}/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/{{current}}/del/{{item.id}}" class="alignright">&times;</a></span></div>
+	{% else %}
+	<div class="listcell namecol">{{ item.name }}</a></div>
+	{% endif %}
+<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell typecol">{{ item.type }}</div>
+<div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
+{% if not item.rating %}
+<div class="listcell ratingcol">--</div>
+{% else %}
+<div class="listcell ratingcol">{{ item.rating }}</div>
+{% endif %}
+<div class="listcell morecol"><div class="arrow"></div></div>
+<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+</div>
+{% endfor %}
+</section>
+
+
+
+{% elif musiclist %}
+
+<section id="musiclist">
+<div class="listrow">
+<div class="listhead numcol">#</div>
+<div class="listhead namecol">Name</div>
+<div class="listhead artistcol">Artist</div>
+<div class="listhead typecol">Type</div>
+<!-- <div class="listhead progcol">Progress</div> -->
+<div class="listhead ratingcol">Rating</div>
+<div class="listhead morecol">...</div>
+</div>
+{% for item in musiclist %}
+<div class="listrow">
+<div class="listcell numcol">{{ forloop.counter }}</div>
+	{% if user.username == listowner %}
+	<div class="listcell namecol"><a href="/~{{listowner}}/{{current}}/edit/{{item.id}}">{{ item.name }}</a> <span class="del"><a href="/~{{listowner}}/{{current}}/del/{{item.id}}" class="alignright">&times;</a></span></div>
+	{% else %}
+	<div class="listcell namecol">{{ item.name }}</a></div>
+	{% endif %}
+<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell typecol">{{ item.type }}</div>
+<!-- <div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div> -->
+{% if not item.rating %}
+<div class="listcell ratingcol">--</div>
+{% else %}
+<div class="listcell ratingcol">{{ item.rating }}</div>
+{% endif %}
+<div class="listcell morecol"><div class="arrow"></div></div>
+<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+</div>
+{% endfor %}
+</section>
+
+
+
+
+{% else %}
+<div class="nontable">
+<h5>
+Nothing here yet! {% if user.username == listowner %}<a href="/~{{listowner}}/{{current}}/new">[Add an item]</a>{% endif %}
+</h5>
+</div>
+{% endif %}
+
+
+
+</div>
+
+{% endblock %}

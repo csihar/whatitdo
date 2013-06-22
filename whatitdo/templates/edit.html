@@ -1,56 +1,51 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="buttonbar">
-	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonon" height="70" width="70" alt="tv"></a>
-	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
-</div>
-
-
-
 <div class="list">
 <h3>
-<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : tv : edit</div>
+<div class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : {{current}} : edit</div>
 </h3>
 <div class="nontable">
-{% if not user.username == listowner %}
-<h4>Sorry, you're not allowed to edit that item.</h4>
-{% else %}
 
-{% if item_to_edit.created %}
-<p class="inputcomment">Item created: <em>{{item_to_edit.created}}</em></p>{% endif %}
-{% if item_to_edit.modified %}
-<p class="inputcomment">Last modified: <em>{{item_to_edit.modified}}</em></p>{% endif %}
+    {% if not user.username == listowner %}
+    <h4>Sorry, you're not allowed to edit that item.</h4>
+    {% else %}
 
 <div class="inputarea">
 
-
-    {{ form.non_field_errors }}
+{{ form.non_field_errors }}
 {% if item_to_edit %}
-<form action="/~{{listowner}}/tv/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
+<form action="/~{{listowner}}/{{current}}/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
 	<input type="hidden" name="id" value="{{item_to_edit.id}}" />
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
 	<input type="hidden" name="category" value="{{item_to_edit.category}}" />
 	<input type="hidden" name="created" value="{{item_to_edit.created}}" />
 	<input type="hidden" name="modified" value="{% now "DATETIME_FORMAT" %}" />
 {% else %}
-<form action="/~{{listowner}}/tv/new" method="POST" id="edit_form">{% csrf_token %}
+<form action="/~{{listowner}}/{{current}}/new" method="POST" id="edit_form">{% csrf_token %}
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
-	<input type="hidden" name="category" value="tv" />
+        {% if current == "tv" %}<input type="hidden" name="category" value="tv" />
+        {% elif current == "movies" %}<input type="hidden" name="category" value="movie" />
+        {% elif current == "books" %}<input type="hidden" name="category" value="book" />
+        {% elif current == "games" %}<input type="hidden" name="category" value="game" />
+        {% elif current == "music" %}<input type="hidden" name="category" value="music" />
+        {% endif %}
 	<input type="hidden" name="created" value="{% now "DATETIME_FORMAT" %}" />
 	<input type="hidden" name="modified" value="{% now "DATETIME_FORMAT" %}" />
 {% endif %}
 
     <div class="fieldWrapper">
         {{ form.name.errors }} 
-        <label for="id_name"><span class="green">*</span> Name:</label>
+        <label for="id_name">Name:</label>
         {{ form.name }}
     </div>
     <div class="fieldWrapper">
         {{ form.artist.errors }} 
-        <label for="id_artist">Studio:</label>
+        <label for="id_artist">
+            {% if current == "tv" or current == "movies" %} Studio:
+            {% elif current == "books" %} Author:
+            {% elif current == "games" %} Platform:
+            {% elif current == "music" %} Artist:
+            {% endif %}</label>
         {{ form.artist }}
     </div>
     <div class="fieldWrapper">
@@ -58,6 +53,7 @@
        <label for="id_type">Type:</label>
         {{ form.type }}
 		</div>
+    {% if current == "tv" or current == "books" or current == "games" %}
     <div class="fieldWrapper">
         {{ form.progress.errors }} 
         <label for="id_progress">Progress:</label>
@@ -65,8 +61,9 @@
 		</div>
     <div class="fieldWrapper">	
 		<label for="id_finished">Finished?</label>
-		<span style="vertical-align:middle;">{{ form.finished }}</span>
+		{{ form.finished }}
     </div>
+    {% endif %}
     <div class="fieldWrapper">
         {{ form.rating.errors }} 
         <label for="id_rating">Rating:</label>
@@ -78,10 +75,20 @@
 		{{ form.comment }}
 	</div>
 
-
     <p><input type="submit" value="Save" /></p>
-	</br>
-	<p class="green"><small>* = required</small></p>
+
+
+{% if item_to_edit.created or item_to_edit.modified %}
+<div class="inputcomment">
+    {% if item_to_edit.created %}
+    <p>Item created: <em>{{item_to_edit.created}}</em></p>{% endif %}
+    {% if item_to_edit.modified %}
+    <p>Last modified: <em>{{item_to_edit.modified}}</em></p>{% endif %}
+</div>
+{% endif %}
+
+
+
 </form>
 
 

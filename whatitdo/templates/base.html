@@ -1,322 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
+<title>what.it.do</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:image" content="{{STATIC_URL}}fbthumb.png" />
 <link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico" />
-<title>what.it.do</title>
-<meta name="description" content="A simple tool to help you keep track of your favorite TV shows, movies, books, games, and music." />
-	<style class="text/css">
-
-
-	html {
-		background-color: #f4f4f4;
-		background-image:url('{{STATIC_URL}}bg.png');
-		background-position:top left;
-		background-attachment:fixed; 
-		background-repeat:repeat-x;
-		font: 11px Verdana, Arial, sans-serif;
-		color: #666;	
-	}
-
-	body {
-		margin: 0 auto 20px auto;
-		border:0;
-		padding: 0;
-		text-align: center;
-	}
-
-	.buttonbar {
-		position: absolute;
-		top: 80px;
-		left: 85px;
-		width: 90px;
-		margin:0;
-		border:0;
-		padding:0;
-		}
-	
-	.buttonon {
-		background-image:url('{{STATIC_URL}}bglite.png');
-		margin: 5px 0 5px 0;
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		padding: 10px;
-		border:0;
-		}
-
-	.buttonoff {
-		background-image:url('{{STATIC_URL}}bglite.png');
-		margin: 5px 0 5px 0;
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		padding: 10px;
-		opacity:0.4;
-		filter:alpha(opacity=40); /* For IE8 and earlier */
-		border:0;
-		}
-	
-	.list {
-		position: absolute;
-		top: 85px;
-		right: 8%;
-		left: 185px;
-		min-width: 750px;
-		min-height: 458px;
-		background-image:url('{{STATIC_URL}}bglite.png');
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		border: 1px solid #ddd;
-		margin: 0 0 20px 0;
-		padding: 15px;
-		}
-
-	table {
-		font: 12px "Courier New", Courier, "Liberation Mono", monospace;
-		color: #333;
-		width: 100%;
-		background-color: #fcfcfc;
-		border: 1px dotted #ddd;
-		border-collapse:collapse;
-		text-align:left;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		}
-	table a {color: #73A;}
-	table a:link {text-decoration:none;}
-	table a:hover {text-decoration:underline;}
-
-	.del a:link {color:#999;text-decoration:none;}
-	.del a:hover {color:#999;text-decoration:none;}
-	
-	tr, td, th {
-		border: 1px dotted #ddd;
-		padding: 4px 4px 4px 4px;
-	}
-	
-	.nontable {
-		width: inherit;
-		min-height: 345px;
-		background-color: #fcfcfc;
-		border: 1px dotted #ddd;
-		text-align:left;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		padding: 30px 30px 30px 30px;
-		}
-	.nontable a {color: #73A;}
-	.nontable a:link {text-decoration:none;}
-	.nontable a:hover {text-decoration:underline;}
-
-		
-	.inputarea {
-		width:58%;
-		border:0;
-		text-align:right;
-		font: 16px "Courier New", Courier, "Liberation Mono", monospace;
-		color: #444;
-	}
-	.inputarea ol {
-		text-align:right;
-		font: 11px Verdana, Arial, sans-serif;
-		color: #666;
-		width:320px;
-		margin-left:auto;
-		margin-right:0;
-	}
-	.inputcomment {margin-right:42%;text-align:right;}
-	
-	#userpic {
-		float:left;
-		height:100px;
-		width:100px;
-		border: 0;
-		padding:0;
-		margin:0 30px 30px 0;
-	}	
-	
-	.rightbox {
-		position:absolute;
-		right:20px;
-		top:90px;
-		bottom:40px;
-		width:42%;
-		border:1px none #bbb;
-		border-left-style:solid;
-		padding:5px 10px 5px 25px;
-		margin:0 0 0 10px;
-		}
-	
-	p, .fieldWrapper {
-		border:0;
-		margin:0 0 5px 0;
-		padding:0;
-	}
-	
-	a {
-		color:inherit;
-		text-decoration: none;
-		border:0;
-	}
-
-	#logoheader {
-		position: absolute;
-		top: 28px;
-		right: 8%;
-		left: 167px;
-		min-width: 800px;
-		margin: 0;
-		padding: 0;
-		border: 0;
-		color: #fefefe;
-		text-align: right;
-		height:130px;
-		}
-	
-	h1 {
-		font: bold 38px "Courier New", Courier, "Liberation Mono", monospace;
-		letter-spacing: -3px;
-		margin: 0 0 -7px 0;
-		padding: 0;
-		border: 0;
-	}
-
-	h2 {
-		font: 12px "Courier New", Courier, "Liberation Mono", monospace;
-		margin: 0;
-		padding: 0;
-		border: 0;
-	}
-	h2 a:hover {text-decoration:underline;}
-	
-	h3 {
-		height: 30px;
-		width: 100;
-		background-color: #776E77;
-		background-image:url('{{STATIC_URL}}msgbar.png');
-		background-repeat:repeat-x;
-		border: 0;
-		text-align:left;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		font: bold 26px "Courier New", Courier, "Liberation Mono", monospace;
-		letter-spacing: -1px;
-		color: #f2f2f2;
-		padding: 5px 30px 5px 30px;
-		margin: -1px 0px 12px 0px;
-	}
-	
-	h4 {
-		margin: auto;
-		text-align:center;
-		width:70%;
-		font: 22px "Courier New", Courier, "Liberation Mono", monospace;
-		color: #333;
-		}
-
-	h5 {
-		margin: auto;
-		font: 18px "Courier New", Courier, "Liberation Mono", monospace;
-		color: #333;
-		}
-		
-	h6 {
-		margin:0 auto 0 auto;
-		text-align:center;
-		width:50%;
-		font: 22px "Courier New", Courier, "Liberation Mono", monospace;
-		color: #333;
-	} h6 small {
-		font: 11px Verdana, Arial, sans-serif;
-		color: #666;	
-		}
-
-	.error,.errorlist {
-		font: 12px Verdana, Arial, sans-serif;
-		color: red;
-		list-style-type: none;
-		}
-	
-	.green {
-		color: #2b9;
-	}
-		
-	.alignleft {
-		float: left;
-	}
-	.alignright {
-		float: right;
-	}
-	
-	#id_name,
-	#id_artist,
-	#id_type, 
-	#id_progress, 
-	#id_rating, 
-	#id_comment,
-	#id_username,
-	#id_email,
-	#id_password1,
-	#id_password2,
-	#id_subject,
-	#username,
-	#password
-	{width:200px; padding:3px; font:12px Verdana, Arial, sans-serif;}
-	#id_message
-	{width:200px; height:125px; padding:3px; vertical-align:top; font:12px Verdana, Arial, sans-serif;}
-
-	#id_link1, #id_link2, #id_link3
-	{width:250px; padding:3px; font:12px Verdana, Arial, sans-serif;}
-
-	#sharelink {
-	width:90%;
-	font: 12px "Courier New", Courier,  "Liberation Mono",monospace;
-	color: #555;
-	}
-	
-	#sortmenu {
-	width:180px; 
-	padding:3px; 
-	font:12px Verdana, Arial, sans-serif;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid #999;
-	}
-	
-	#home_footer {
-	margin:150px auto -20px auto;
-	padding:0;
-	border:0;
-	font: 11px Verdana, Arial, sans-serif;
-	color: #999;	
-	}
-	#home_footer a {color: #999;}
-	#home_footer a:hover {text-decoration:underline;}
-	
-	hr {
-	text-align:left;
-	border:0;
-	padding:0;
-	margin:30px 0 30px 0;
-	width:45%;
-	height:1px;
-	color: #bbb;
-	background-color: #bbb;
-	}
-	
-</style>
+<link rel="stylesheet" href="{{STATIC_URL}}reset.css" />
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}formalize.css" />
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css" />
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mobile.css" />
+<meta name="description" content="A web app for keeping track of your favorite TV shows, movies, books, games, and music." />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="{{STATIC_URL}}jquery.formalize.js"></script>
+<script src="{{STATIC_URL}}script.js"></script>
 </head>
 
 <body>
-<div id="logoheader"><h1><a href="/">what<span class="green">.</span>it<span class="green">.</span>do</a></h1>
+<div id="container">
+
+<div id="logoheader"><h1><a href="/">what<em>.</em>it<em>.</em>do</a></h1>
+
 {% if user.is_authenticated %}
-<h2>logged in as <a href="/~{{user.username}}">{{user.username}}</a> // <a href="/accounts/logout/?next=/">logout</a></h2>
+	<h2>logged in as <a href="/~{{user.username}}">{{user.username}}</a> // <a href="/accounts/logout/?next=/">logout</a></h2>
 {% else %}
-<h2><a href="/accounts/register/">create account</a> // <a href="/accounts/login/">login</a></h2>
+	<h2><a href="/accounts/register/">create account</a> // <a href="/accounts/login/">login</a></h2>
 {% endif %}
 </div>
+
+
+<div class="buttonbar">
+<!--	Button bar logic:
+		- if on a user's homepage, all buttons off, linked to user being viewed
+		- if on a list or item edit page, corresponding button turns on, all are linked to user being viewed
+		- if logged in but not on a list or homepage, all buttons off, linked to current user
+		- otherwise, all buttons off, no links
+-->
+
+{% if current == 'userhome' %}
+	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
+	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
+	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
+	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
+	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+
+{% else %}
+	{% if current == 'tv' %}
+		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonon" height="70" width="70" alt="tv"></a>
+		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
+		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
+		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
+		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+	{% elif current == 'movies' %}
+		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
+		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonon" height="70" width="70" alt="movies"></a>
+		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
+		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
+		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+	{% elif current == 'books' %}
+		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
+		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
+		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonon" height="70" width="70" alt="books"></a>
+		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
+		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+	{% elif current == 'games' %}
+		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
+		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
+		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
+		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonon" height="70" width="70" alt="games"></a>
+		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+	{% elif current == 'music' %}
+		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
+		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
+		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
+		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
+		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonon" height="70" width="70" alt="music"></a>
+	{% else %}
+		{% if user.is_authenticated %}<a href="/~{{user.username}}/tv">{% endif %}
+			<img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv">
+			{% if user.is_authenticated %}</a>{% endif %}
+		{% if user.is_authenticated %}<a href="/~{{user.username}}/movies">{% endif %}
+			<img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies">
+			{% if user.is_authenticated %}</a>{% endif %}
+		{% if user.is_authenticated %}<a href="/~{{user.username}}/books">{% endif %}
+			<img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books">
+			{% if user.is_authenticated %}</a>{% endif %}
+		{% if user.is_authenticated %}<a href="/~{{user.username}}/games">{% endif %}
+			<img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games">
+			{% if user.is_authenticated %}</a>{% endif %}
+		{% if user.is_authenticated %}<a href="/~{{user.username}}/music">{% endif %}
+			<img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music">
+			{% if user.is_authenticated %}</a>{% endif %}
+	{% endif %}
+
+{% endif %}
+</div>
+
+
+
 {% block body %}
 {% endblock %}
 </div>
+
 </body>
 </html>

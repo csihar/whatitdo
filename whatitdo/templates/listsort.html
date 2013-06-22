@@ -1,24 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="buttonbar">
-	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
-</div>
-
-
-
 <div class="list">
 <h3>
-<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : sorting</div>
+<div class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : sorting</div>
 </h3>
 <div class="nontable">
-<p class="inputcomment">Your lists will be sorted by the following categories:</p><br />
 <div class="inputarea">
-
 <form action="" method="post">{% csrf_token %}
+<p class="inputcomment">Your lists will be sorted by the following categories:</p>
 
 <div class="fieldWrapper">
 <label for="tvsort1">TV: 1.</label>

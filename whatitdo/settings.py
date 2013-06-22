@@ -1,9 +1,22 @@
 # Django settings for whatitdo project.
 import os
 
+# Settings defined in environment variables:
+# EMAIL_HOST_PASSWORD
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+
+
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
+# Automatically sets DEBUG to False if on Heroku server
+try:  
+    if os.environ['PYTHONPATH'] == '/app':
+        DEBUG = False
+except KeyError: 
+    pass
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -11,6 +24,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+ALLOWED_HOSTS = ['.herokuapp.com']
+if DEBUG:
+    ALLOWED_HOSTS = ['']
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -36,7 +53,7 @@ DATABASES = {
         'USER': 'whatitdo',
         'PASSWORD': 'w4t1td0',
         'HOST': '',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -58,6 +75,12 @@ STATIC_ROOT = '/static/'
 STATICFILES_DIRS = (
     '/static/',
 )
+
+#switches to local static files during development
+if DEBUG:
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static'),)
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -152,12 +175,9 @@ AUTH_PROFILE_MODULE = 'items.userprofile'
 
 # -- Heroku database setting: ---
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+try:  
+   if os.environ['DATABASE_URL']:
+        DATABASES['default'] =  dj_database_url.config()
+except KeyError: 
+   pass
 
-
-
-# Settings defined in environment variables:
-# EMAIL_HOST_PASSWORD
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY

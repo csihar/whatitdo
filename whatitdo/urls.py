@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib.auth.views import *
 from django.http import HttpResponseRedirect
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = patterns('whatitdo.views',
@@ -50,3 +51,5 @@ urlpatterns += patterns('',
     url(r'^contact/thanks/?$', 'whatitdo.views.contact_thanks'),
     url(r'^users/[A-Za-z0-9]{1,30}/$', lambda x: HttpResponseRedirect('/')),
 )
+
+urlpatterns += staticfiles_urlpatterns()

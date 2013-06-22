@@ -1,30 +1,21 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="buttonbar">
-	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
-</div>
-
-
 
 <div class="list">
 <h3>
-<div class="alignleft"><a href="/~{{ listowner }}" style="color: #f2f2f2;">{{ listowner }}</a> : home</div>
+<div class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : home</div>
 </h3>
 <div class="nontable">
 <img src="{{MEDIA_URL}}{{userpic}}" alt="userpic" id="userpic">
 <h5><p>
-tv: <span class="green">{{tvsize}}</span><br />
-movies: <span class="green">{{moviesize}}</span><br />
-books: <span class="green">{{booksize}}</span><br />
-games: <span class="green">{{gamesize}}</span><br />
-music: <span class="green">{{musicsize}}</span><br />
+tv: <em>{{tvsize}}</em><br />
+movies: <em>{{moviesize}}</em><br />
+books: <em>{{booksize}}</em><br />
+games: <em>{{gamesize}}</em><br />
+music: <em>{{musicsize}}</em><br />
 </p></h5>
-<p style="clear:both;"><em>Last login: {{ lastlogin }}</em></p>
-<p style="clear:both;"><em>User since: {{ datejoined }}</em></p>
+<p class="usertime">Last login: {{ lastlogin }}</p>
+<p class="usertime">User since: {{ datejoined }}</p>
 
 {% if link1 or link2 or link3 %}
 <hr />
