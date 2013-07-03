@@ -92,11 +92,17 @@
 		line-height:2.2rem;
 	}
 
-
-
 	.nontable {
 		min-height:auto;
 	}
+
+	form {
+		text-align:right;
+		width:50%;
+		min-width:400px;
+		margin:0 30% 0 5%;
+	}
+
 
 	.sortmenu {
 		margin-bottom:6px;
@@ -109,6 +115,10 @@
 	}
 	#userhomecontent {
 		min-height: 400px;
+		font-size: .8em;
+	}
+	#userhomecontent big {
+		font-size:1em;
 	}
 
 	#sharelink {
@@ -124,20 +134,22 @@
 		width:50px;
 	}
 
-	#tvlist .namecol {width:49%;}
-	#tvlist .typecol {width:22%;}
-	#tvlist .progcol {width:11%;}
-	#movielist .namecol {width:56%;}
+	.numcol, .morecol {width:6%;}
+	.ratingcol {width:9%;}
+	#tvlist .namecol {width:47%;}
+	#tvlist .typecol {width:20%;}
+	#tvlist .progcol {width:12%;}
+	#movielist .namecol {width:53%;}
 	#movielist .typecol {width:26%;}
-	#booklist .namecol {width:45%;}
+	#booklist .namecol {width:42%;}
 	#booklist .artistcol {width:25%;}
 	#booklist .progcol {width:12%;}
-	#gamelist .namecol {width:45%;}
+	#gamelist .namecol {width:42%;}
 	#gamelist .artistcol {width:25%;}
 	#gamelist .progcol {width:12%;}
-	#musiclist .namecol {width:39%;}
+	#musiclist .namecol {width:37%;}
 	#musiclist .artistcol {width:24%;}
-	#musiclist .typecol {width:19%;}
+	#musiclist .typecol {width:18%;}
 
 	.drawer {
 		padding-top:7px;
@@ -146,7 +158,7 @@
 
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 601px) {
 	.tablethide{display:none;}
 }
 
@@ -156,7 +168,7 @@
 
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
 
 /* phone styles */
 

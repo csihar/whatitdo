@@ -3,7 +3,7 @@
 $(document).ready(function(){
 
 	// hide drawers - visible by default in case Javascript is off
-	$('.drawer').children().fadeOut(0);
+	$('.drawer').children().hide;
 	$('.drawer').hide();
 
 	// fade demo blurb in
@@ -18,7 +18,7 @@ $(document).ready(function(){
 			$(this).next().children().fadeOut(0);
 			$(this).removeClass('is_open');
 			return;
-		};
+		}
 		$(this).next().toggle();
 		if ($(window).width() > 888 ) {
 			$(this).next().contents(':hidden').fadeIn(350); }
@@ -35,7 +35,7 @@ $(document).ready(function(){
 			$(this).removeClass('all_open');
 			$('.morecol').removeClass('is_open');
 			return;
-		};
+		}
 		$('.drawer').show();
 		if ($(window).width() > 888 ) {
 			$('.drawer').children(':hidden').fadeIn(350); }

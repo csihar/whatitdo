@@ -3,10 +3,10 @@
 <div class="list">
 
 <h3>
-<div class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : {{current}}</div>
+<span class="alignleft"><a href="/~{{ listowner }}">{{ listowner }}</a> : {{current}}</span>
 
 {% if user.username == listowner %}
-<a href="/~{{listowner}}/{{current}}/new"><div class="alignright" id="newbutton">+</div></a>
+<a href="/~{{listowner}}/{{current}}/new"><span class="alignright" id="newbutton">+</span></a>
 {% endif %}
 </h3>
 

@@ -22,7 +22,7 @@
 <div id="logoheader"><h1><a href="/">what<em>.</em>it<em>.</em>do</a></h1>
 <div class="clearfix"></div>
 {% if user.is_authenticated %}
-	<h2><span class="mobilehide">logged in as <a href="/~{{user.username}}">{{user.username}}</span><span class="desktophide">home</span></a><span class="mobilehide"> // <a href="/accounts/logout/?next=/">logout</a></span></h2>
+	<h2><span class="mobilehide">logged in as <a href="/~{{user.username}}">{{user.username}}</a></span><span class="desktophide"><a href="/~{{user.username}}">home</a></span><span class="mobilehide"> // <a href="/accounts/logout/?next=/">logout</a></span></h2>
 {% else %}
 	<h2><a href="/accounts/register/">new user</a><span class="mobilehide"> // </span><a href="/accounts/login/">login</a></h2>
 {% endif %}
