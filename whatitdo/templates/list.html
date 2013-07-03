@@ -18,10 +18,10 @@
 <div class="listrow">
 <div class="listhead numcol">#</div>
 <div class="listhead namecol">Name</div>
-<div class="listhead typecol">Type</div>
-<div class="listhead artistcol">Studio</div>
-<div class="listhead progcol">Progress</div>
-<div class="listhead ratingcol">Rating</div>
+<div class="listhead typecol phonehide">Type</div>
+<div class="listhead artistcol mobilehide">Studio</div>
+<div class="listhead progcol">Prog<span class="phonehide">ress</span><span class="desktophide tablethide">.</span></div>
+<div class="listhead ratingcol phonehide">Rating</div>
 <div class="listhead morecol">...</div>
 </div>
 {% for item in tvlist %}
@@ -32,16 +32,23 @@
 	{% else %}
 	<div class="listcell namecol">{{ item.name }}</a></div>
 	{% endif %}
-<div class="listcell typecol">{{ item.type }}</div>
-<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell typecol phonehide">{{ item.type }}</div>
+<div class="listcell artistcol mobilehide">{{ item.artist }}</div>
 <div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
 {% if not item.rating %}
-<div class="listcell ratingcol">--</div>
+<div class="listcell ratingcol phonehide">--</div>
 {% else %}
-<div class="listcell ratingcol">{{ item.rating }}</div>
+<div class="listcell ratingcol phonehide">{{ item.rating }}</div>
 {% endif %}
 <div class="listcell morecol"><div class="arrow"></div></div>
-<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+<div class="listcell drawer">
+	<span class="desktophide">
+		{% if item.artist %}<p class="desktophide studiocom">{{ item.artist }}</p>{% endif %}
+	<span class="tablethide">
+		{% if item.type %}<p class="tablethide typecom">{{ item.type }}</p>{% endif %}
+		{% if item.rating %}<p class="tablethide ratingcom">{{ item.rating }}</p>{% endif %}</span></span>
+	<p class="comment">{{ item.comment }}</p>
+</div>
 </div>
 {% endfor %}
 </section>
@@ -54,9 +61,9 @@
 <div class="listrow">
 <div class="listhead numcol">#</div>
 <div class="listhead namecol">Name</div>
-<div class="listhead typecol">Type</div>
-<div class="listhead artistcol">Studio</div>
-<!-- <div class="listhead progcol">Progress</div> -->
+<div class="listhead artistcol mobilehide">Director</div>
+<div class="listhead typecol phonehide">Type</div>
+<!-- <div class="listhead progcol">Prog<span class="phonehide">ress</span><span class="desktophide tablethide">.</span></div> -->
 <div class="listhead ratingcol">Rating</div>
 <div class="listhead morecol">...</div>
 </div>
@@ -68,8 +75,8 @@
 	{% else %}
 	<div class="listcell namecol">{{ item.name }}</a></div>
 	{% endif %}
-<div class="listcell typecol">{{ item.type }}</div>
-<div class="listcell artistcol">{{ item.artist }}</div>
+<div class="listcell artistcol mobilehide">{{ item.artist }}</div>
+<div class="listcell typecol phonehide">{{ item.type }}</div>
 <!-- <div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div> -->
 {% if not item.rating %}
 <div class="listcell ratingcol">--</div>
@@ -77,7 +84,13 @@
 <div class="listcell ratingcol">{{ item.rating }}</div>
 {% endif %}
 <div class="listcell morecol"><div class="arrow"></div></div>
-<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+<div class="listcell drawer">
+	<span class="desktophide">
+		{% if item.artist %}<p class="desktophide directorcom">{{ item.artist }}</p>{% endif %}
+	<span class="tablethide">
+		{% if item.type %}<p class="tablethide typecom">{{ item.type }}</p>{% endif %}</span></span>
+	<p class="comment">{{ item.comment }}</p>
+</div>
 </div>
 {% endfor %}
 </section>
@@ -91,9 +104,9 @@
 <div class="listhead numcol">#</div>
 <div class="listhead namecol">Name</div>
 <div class="listhead artistcol">Author</div>
-<div class="listhead typecol">Type</div>
-<div class="listhead progcol">Progress</div>
-<div class="listhead ratingcol">Rating</div>
+<div class="listhead typecol mobilehide">Type</div>
+<div class="listhead progcol phonehide">Prog<span class="phonehide">ress</span><span class="desktophide tablethide">.</span></div>
+<div class="listhead ratingcol phonehide">Rating</div>
 <div class="listhead morecol">...</div>
 </div>
 {% for item in booklist %}
@@ -105,15 +118,22 @@
 	<div class="listcell namecol">{{ item.name }}</a></div>
 	{% endif %}
 <div class="listcell artistcol">{{ item.artist }}</div>
-<div class="listcell typecol">{{ item.type }}</div>
-<div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
+<div class="listcell typecol mobilehide">{{ item.type }}</div>
+<div class="listcell progcol phonehide">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
 {% if not item.rating %}
-<div class="listcell ratingcol">--</div>
+<div class="listcell ratingcol phonehide">--</div>
 {% else %}
-<div class="listcell ratingcol">{{ item.rating }}</div>
+<div class="listcell ratingcol phonehide">{{ item.rating }}</div>
 {% endif %}
 <div class="listcell morecol"><div class="arrow"></div></div>
-<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+<div class="listcell drawer">
+	<span class="desktophide">
+		{% if item.type %}<p class="desktophide typecom">{{ item.type }}</p>{% endif %}
+	<span class="tablethide">
+		{% if item.progress or item.finished %}<p class="tablethide progcom">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</p>{% endif %}
+		{% if item.rating %}<p class="tablethide ratingcom">{{ item.rating }}</p>{% endif %}</span></span>
+	<p class="comment">{{ item.comment }}</p>
+</div>
 </div>
 {% endfor %}
 </section>
@@ -127,9 +147,9 @@
 <div class="listhead numcol">#</div>
 <div class="listhead namecol">Name</div>
 <div class="listhead artistcol">Platform</div>
-<div class="listhead typecol">Type</div>
-<div class="listhead progcol">Progress</div>
-<div class="listhead ratingcol">Rating</div>
+<div class="listhead typecol mobilehide">Type</div>
+<div class="listhead progcol phonehide">Prog<span class="phonehide">ress</span><span class="desktophide tablethide">.</span></div>
+<div class="listhead ratingcol phonehide">Rating</div>
 <div class="listhead morecol">...</div>
 </div>
 {% for item in gamelist %}
@@ -141,15 +161,22 @@
 	<div class="listcell namecol">{{ item.name }}</a></div>
 	{% endif %}
 <div class="listcell artistcol">{{ item.artist }}</div>
-<div class="listcell typecol">{{ item.type }}</div>
-<div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
+<div class="listcell typecol mobilehide">{{ item.type }}</div>
+<div class="listcell progcol phonehide">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div>
 {% if not item.rating %}
-<div class="listcell ratingcol">--</div>
+<div class="listcell ratingcol phonehide">--</div>
 {% else %}
-<div class="listcell ratingcol">{{ item.rating }}</div>
+<div class="listcell ratingcol phonehide">{{ item.rating }}</div>
 {% endif %}
 <div class="listcell morecol"><div class="arrow"></div></div>
-<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+<div class="listcell drawer">
+	<span class="desktophide">
+		{% if item.type %}<p class="desktophide typecom">{{ item.type }}</p>{% endif %}
+	<span class="tablethide">
+		{% if item.progress or item.finished %}<p class="tablethide progcom">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</p>{% endif %}
+		{% if item.rating %}<p class="tablethide ratingcom">{{ item.rating }}</p>{% endif %}</span></span>
+	<p class="comment">{{ item.comment }}</p>
+</div>
 </div>
 {% endfor %}
 </section>
@@ -163,9 +190,9 @@
 <div class="listhead numcol">#</div>
 <div class="listhead namecol">Name</div>
 <div class="listhead artistcol">Artist</div>
-<div class="listhead typecol">Type</div>
-<!-- <div class="listhead progcol">Progress</div> -->
-<div class="listhead ratingcol">Rating</div>
+<div class="listhead typecol phonehide">Type</div>
+<div class="listhead progcol mobilehide">Year</div>
+<div class="listhead ratingcol phonehide">Rating</div>
 <div class="listhead morecol">...</div>
 </div>
 {% for item in musiclist %}
@@ -177,15 +204,22 @@
 	<div class="listcell namecol">{{ item.name }}</a></div>
 	{% endif %}
 <div class="listcell artistcol">{{ item.artist }}</div>
-<div class="listcell typecol">{{ item.type }}</div>
-<!-- <div class="listcell progcol">{{ item.progress }} {% if item.finished %}&#x2713;{% endif %}</div> -->
+<div class="listcell typecol phonehide">{{ item.type }}</div>
+<div class="listcell progcol mobilehide">{{ item.progress }}</div>
 {% if not item.rating %}
-<div class="listcell ratingcol">--</div>
+<div class="listcell ratingcol phonehide">--</div>
 {% else %}
-<div class="listcell ratingcol">{{ item.rating }}</div>
+<div class="listcell ratingcol phonehide">{{ item.rating }}</div>
 {% endif %}
 <div class="listcell morecol"><div class="arrow"></div></div>
-<div class="listcell drawer"><p class="comment">{{ item.comment }}</p></div>
+<div class="listcell drawer">
+	<span class="desktophide">
+		{% if item.progress %}<p class="desktophide yearcom">{{ item.progress }}</p>{% endif %}
+	<span class="tablethide">
+		{% if item.type %}<p class="tablethide typecom">{{ item.type }}</p>{% endif %}
+		{% if item.rating %}<p class="tablethide ratingcom">{{ item.rating }}</p>{% endif %}</span></span>
+	<p class="comment">{{ item.comment }}</p>
+</div>
 </div>
 {% endfor %}
 </section>
@@ -201,6 +235,9 @@ Nothing here yet! {% if user.username == listowner %}<a href="/~{{listowner}}/{{
 </div>
 {% endif %}
 
+{% if user.username == listowner %}
+<div class="alignright desktophide tablethide"><a href="/~{{listowner}}/{{current}}/new"><div class="alignright" id="newbutton">new item</div></a></div>
+{% endif %}
 
 
 </div>

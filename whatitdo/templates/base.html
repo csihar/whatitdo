@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>what.it.do</title>
+<title>what.it.do{% if listowner and user.username != listowner %} : {{listowner}}{% endif %}</title>
+<meta name="description" content="A web app for keeping track of your favorite TV shows, movies, books, games, and music." />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:image" content="{{STATIC_URL}}fbthumb.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" href="{{STATIC_URL}}favicon.ico" />
 <link rel="stylesheet" href="{{STATIC_URL}}reset.css" />
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}formalize.css" />
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style.css" />
 <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mobile.css" />
-<meta name="description" content="A web app for keeping track of your favorite TV shows, movies, books, games, and music." />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="{{STATIC_URL}}jquery.formalize.js"></script>
 <script src="{{STATIC_URL}}script.js"></script>
@@ -19,11 +20,11 @@
 <div id="container">
 
 <div id="logoheader"><h1><a href="/">what<em>.</em>it<em>.</em>do</a></h1>
-
+<div class="clearfix"></div>
 {% if user.is_authenticated %}
-	<h2>logged in as <a href="/~{{user.username}}">{{user.username}}</a> // <a href="/accounts/logout/?next=/">logout</a></h2>
+	<h2><span class="mobilehide">logged in as <a href="/~{{user.username}}">{{user.username}}</span><span class="desktophide">home</span></a><span class="mobilehide"> // <a href="/accounts/logout/?next=/">logout</a></span></h2>
 {% else %}
-	<h2><a href="/accounts/register/">create account</a> // <a href="/accounts/login/">login</a></h2>
+	<h2><a href="/accounts/register/">new user</a><span class="mobilehide"> // </span><a href="/accounts/login/">login</a></h2>
 {% endif %}
 </div>
 
@@ -37,69 +38,66 @@
 -->
 
 {% if current == 'userhome' %}
-	<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-	<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-	<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-	<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-	<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+	<a href="/~{{listowner}}/tv"><nav class="buttonoff tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+	<a href="/~{{listowner}}/movies"><nav class="buttonoff moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+	<a href="/~{{listowner}}/books"><nav class="buttonoff booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+	<a href="/~{{listowner}}/games"><nav class="buttonoff gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+	<a href="/~{{listowner}}/music"><nav class="buttonoff musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 
 {% else %}
 	{% if current == 'tv' %}
-		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonon" height="70" width="70" alt="tv"></a>
-		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+		<a href="/~{{listowner}}/tv"><nav class="buttonon tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+		<a href="/~{{listowner}}/movies"><nav class="buttonoff moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+		<a href="/~{{listowner}}/books"><nav class="buttonoff booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+		<a href="/~{{listowner}}/games"><nav class="buttonoff gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+		<a href="/~{{listowner}}/music"><nav class="buttonoff musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 	{% elif current == 'movies' %}
-		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonon" height="70" width="70" alt="movies"></a>
-		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+		<a href="/~{{listowner}}/tv"><nav class="buttonoff tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+		<a href="/~{{listowner}}/movies"><nav class="buttonon moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+		<a href="/~{{listowner}}/books"><nav class="buttonoff booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+		<a href="/~{{listowner}}/games"><nav class="buttonoff gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+		<a href="/~{{listowner}}/music"><nav class="buttonoff musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 	{% elif current == 'books' %}
-		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonon" height="70" width="70" alt="books"></a>
-		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+		<a href="/~{{listowner}}/tv"><nav class="buttonoff tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+		<a href="/~{{listowner}}/movies"><nav class="buttonoff moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+		<a href="/~{{listowner}}/books"><nav class="buttonon booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+		<a href="/~{{listowner}}/games"><nav class="buttonoff gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+		<a href="/~{{listowner}}/music"><nav class="buttonoff musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 	{% elif current == 'games' %}
-		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonon" height="70" width="70" alt="games"></a>
-		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music"></a>
+		<a href="/~{{listowner}}/tv"><nav class="buttonoff tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+		<a href="/~{{listowner}}/movies"><nav class="buttonoff moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+		<a href="/~{{listowner}}/books"><nav class="buttonoff booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+		<a href="/~{{listowner}}/games"><nav class="buttonon gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+		<a href="/~{{listowner}}/music"><nav class="buttonoff musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 	{% elif current == 'music' %}
-		<a href="/~{{listowner}}/tv"><img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv"></a>
-		<a href="/~{{listowner}}/movies"><img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies"></a>
-		<a href="/~{{listowner}}/books"><img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books"></a>
-		<a href="/~{{listowner}}/games"><img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games"></a>
-		<a href="/~{{listowner}}/music"><img src="{{STATIC_URL}}music.png" class="buttonon" height="70" width="70" alt="music"></a>
+		<a href="/~{{listowner}}/tv"><nav class="buttonoff tvbutton"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav></a>
+		<a href="/~{{listowner}}/movies"><nav class="buttonoff moviesbutton"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav></a>
+		<a href="/~{{listowner}}/books"><nav class="buttonoff booksbutton"><img src="{{STATIC_URL}}books.svg" alt="books"></nav></a>
+		<a href="/~{{listowner}}/games"><nav class="buttonoff gamesbutton"><img src="{{STATIC_URL}}games.svg" alt="games"></nav></a>
+		<a href="/~{{listowner}}/music"><nav class="buttonon musicbutton"><img src="{{STATIC_URL}}music.svg" alt="music"></nav></a>
 	{% else %}
 		{% if user.is_authenticated %}<a href="/~{{user.username}}/tv">{% endif %}
-			<img src="{{STATIC_URL}}tv.png" class="buttonoff" height="70" width="70" alt="tv">
+			<nav class="buttonoff tvbutton 
+			{% if not user.is_authenticated %}staticbutton{% endif %}"><img src="{{STATIC_URL}}tv.svg" alt="tv"></nav>
 			{% if user.is_authenticated %}</a>{% endif %}
 		{% if user.is_authenticated %}<a href="/~{{user.username}}/movies">{% endif %}
-			<img src="{{STATIC_URL}}movies.png" class="buttonoff" height="70" width="70" alt="movies">
+			<nav class="buttonoff moviesbutton {% if not user.is_authenticated %}staticbutton{% endif %}"><img src="{{STATIC_URL}}movies.svg" alt="movies"></nav>
 			{% if user.is_authenticated %}</a>{% endif %}
 		{% if user.is_authenticated %}<a href="/~{{user.username}}/books">{% endif %}
-			<img src="{{STATIC_URL}}books.png" class="buttonoff" height="70" width="70" alt="books">
+			<nav class="buttonoff booksbutton {% if not user.is_authenticated %}staticbutton{% endif %}"><img src="{{STATIC_URL}}books.svg" alt="books"></nav>
 			{% if user.is_authenticated %}</a>{% endif %}
 		{% if user.is_authenticated %}<a href="/~{{user.username}}/games">{% endif %}
-			<img src="{{STATIC_URL}}games.png" class="buttonoff" height="70" width="70" alt="games">
+			<nav class="buttonoff gamesbutton {% if not user.is_authenticated %}staticbutton{% endif %}"><img src="{{STATIC_URL}}games.svg" alt="games"></nav>
 			{% if user.is_authenticated %}</a>{% endif %}
 		{% if user.is_authenticated %}<a href="/~{{user.username}}/music">{% endif %}
-			<img src="{{STATIC_URL}}music.png" class="buttonoff" height="70" width="70" alt="music">
+			<nav class="buttonoff musicbutton {% if not user.is_authenticated %}staticbutton{% endif %}"><img src="{{STATIC_URL}}music.svg" alt="music"></nav>
 			{% if user.is_authenticated %}</a>{% endif %}
 	{% endif %}
 
 {% endif %}
 </div>
-
-
-
 {% block body %}
 {% endblock %}
 </div>
-
 </body>
 </html>

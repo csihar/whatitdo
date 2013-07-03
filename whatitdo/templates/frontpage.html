@@ -6,16 +6,17 @@
 		</h3>
 	<div class="nontable"><h4><br /><p id="splash">
 		<strong>what<em>.</em>it<em>.</em>do</strong>&nbsp; is a tool to help you organize the things you love.<br /><br />
-	Catalog your collections, rate your favorites, keep track of your progress, and share your lists with your friends!</p><br /><br /><br />
+	Catalog your collections, rate your favorites, keep track of your progress, and share your lists with your friends!</p>
+<div class="frontlinks"><br /><br /><br class="phonehide" />
 {% if not user.is_authenticated %}
 		<p>[&nbsp;<a href="/accounts/login/">login</a>&nbsp;] or [&nbsp;<a href="/accounts/register/">create an account</a>&nbsp;]</p>
 
 {% else %}
-		<p>[&nbsp;<a href="/~{{user.username}}">home</a>&nbsp;] [&nbsp;<a href="/~{{user.username}}/tv">tv</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/movies">movies</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/books">books</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/games">games</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/music">music</a>&nbsp;]</p>
+		<p>[&nbsp;<a href="/~{{user.username}}/tv">tv</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/movies">movies</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/books">books</a> /&nbsp;<a href="/~{{user.username}}/games">games</a>&nbsp;/&nbsp;<a href="/~{{user.username}}/music">music</a>&nbsp;] <br />[&nbsp;<a href="/~{{user.username}}">home</a>&nbsp;]</p>
 {% endif %}
-
+</div>
 		<div id="home_footer">
-		<a href="http://www.github.com/csihar/whatitdo" target="_blank">version 1.0</a> // <a href="/contact/">contact</a>
+		<a href="http://www.github.com/csihar/whatitdo" target="_blank">version 1.1</a> // <a href="/~oz">demo page</a> // <a href="/contact/">contact</a>
 		</div>
 	</div>
 </div>

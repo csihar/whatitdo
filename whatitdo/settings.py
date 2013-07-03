@@ -5,14 +5,15 @@ import os
 # EMAIL_HOST_PASSWORD
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
-
+#   (only for local development on Mac):
+#   PGHOST = localhost
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
 DEBUG = True
 # Automatically sets DEBUG to False if on Heroku server
 try:  
-    if os.environ['PYTHONPATH'] == '/app':
+    if os.environ['PYTHONPATH']=='/app' or os.environ['PYTHONPATH']=='/app/':
         DEBUG = False
 except KeyError: 
     pass
@@ -77,9 +78,9 @@ STATICFILES_DIRS = (
 )
 
 #switches to local static files during development
-#if DEBUG:
-#    STATIC_URL = '/static/'
-#    STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static'),)
+if DEBUG == True:
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static'),)
 
 
 STATICFILES_FINDERS = (
@@ -103,8 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'whatitdo.urls'

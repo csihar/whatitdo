@@ -3,19 +3,27 @@
 $(document).ready(function(){
 
 	// hide drawers - visible by default in case Javascript is off
-	$('.comment').fadeOut(0);
+	$('.drawer').children().fadeOut(0);
 	$('.drawer').hide();
+
+	// fade demo blurb in
+	$('#demoblurb').hide();
+	$('#demoblurb').delay(300).fadeIn(1000);
+
 
 	// show/hide individual drawers
 	$('.morecol').click(function(){
 		if ($(this).hasClass('is_open')) {
 			$(this).next().toggle();
-			$(this).next().contents().fadeOut(0);
+			$(this).next().children().fadeOut(0);
 			$(this).removeClass('is_open');
 			return;
 		};
 		$(this).next().toggle();
-		$(this).next().contents(':hidden').fadeIn(350);
+		if ($(window).width() > 888 ) {
+			$(this).next().contents(':hidden').fadeIn(350); }
+		else {$(this).next().contents(':hidden').show(); }
+
 		$(this).addClass('is_open');
 	});
 
@@ -29,7 +37,9 @@ $(document).ready(function(){
 			return;
 		};
 		$('.drawer').show();
-		$('.drawer').children(':hidden').fadeIn(350);
+		if ($(window).width() > 888 ) {
+			$('.drawer').children(':hidden').fadeIn(350); }
+		else {$('.drawer').children(':hidden').show();}
 		$(this).addClass('all_open');
 		$('.morecol').addClass('is_open');
 	});

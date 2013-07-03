@@ -1,0 +1,473 @@
+@media screen and (max-width: 888px) {
+
+/* tablet styles */
+	.mobilehide {
+		display:none;
+	}
+
+	.buttonbar {
+		top: 10px;
+		left: 5px;
+		height:90px;
+		width:auto;
+	}
+
+	.buttonon, .buttonoff {
+		display:inline-block;
+		margin: 0 0 0 5px;
+		height: 70px;
+		width: 70px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		padding:5px;
+	}
+	.buttonoff img, .buttonon img {
+		max-width:60px;
+		height:60px;
+	}
+
+
+	.list {
+		position: static;
+		min-height: auto;
+		min-width: auto;
+		margin: 0 10px 10px 10px;
+		padding: 10px;
+		border-width:0;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+
+	#logoheader {
+		margin: 0 0 10px auto;
+		padding-right: 11px;
+		min-width: auto;
+		width: auto;
+		height:80px;
+ 	}
+
+
+	h1 {
+		font: 1.8rem "Courier", "Liberation Mono", monospace;
+		letter-spacing: -1px;
+		font-weight: 700;
+		padding:6px 1px 0 0;
+	}
+
+	h2 {
+		font: .9rem "Courier", "Liberation Mono", monospace;
+		padding: 0;
+		color: #444;
+		margin-top:15px;
+	}
+	h2 a {
+		margin-left:10px;
+		padding: 10px 18px;
+		background-color: rgba(255,255,255,.8);
+		color: #83B;
+		text-align:center;
+		border:0 #ddd solid;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+	h2 a:hover {text-decoration:none;}
+	h2 span.desktophide {display:inline;}
+	
+	h3 {
+		height: 35px;
+		width: auto;
+		background-color: #776E77;
+		background-image:url('./msgbar.png');
+		background-repeat:repeat-x;
+		border: 0;
+		text-align:left;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		font: 1.3rem "Courier", "Liberation Mono", monospace;
+		letter-spacing: -1px;
+		color: #f2f2f2;
+		padding: 0 0 5px 15px;
+		margin: 0 0 8px 0;
+		line-height:2.2rem;
+	}
+
+
+
+	.nontable {
+		min-height:auto;
+	}
+
+	.sortmenu {
+		margin-bottom:6px;
+	}
+
+	.rightbox {
+		margin:75px 0 0 30px;
+		padding:5px 5px 0 15px;
+		height:355px;
+	}
+	#userhomecontent {
+		min-height: 400px;
+	}
+
+	#sharelink {
+		width:98%;
+		font: .9em "Courier",  "Liberation Mono",monospace;
+		color: #555;
+	}
+
+	#newbutton {
+		margin:5px 5px;
+		line-height:25px;
+		height:25px;
+		width:50px;
+	}
+
+	#tvlist .namecol {width:49%;}
+	#tvlist .typecol {width:22%;}
+	#tvlist .progcol {width:11%;}
+	#movielist .namecol {width:56%;}
+	#movielist .typecol {width:26%;}
+	#booklist .namecol {width:45%;}
+	#booklist .artistcol {width:25%;}
+	#booklist .progcol {width:12%;}
+	#gamelist .namecol {width:45%;}
+	#gamelist .artistcol {width:25%;}
+	#gamelist .progcol {width:12%;}
+	#musiclist .namecol {width:39%;}
+	#musiclist .artistcol {width:24%;}
+	#musiclist .typecol {width:19%;}
+
+	.drawer {
+		padding-top:7px;
+		line-height:1.3em;
+	}
+
+}
+
+@media screen and (min-width: 641px) {
+	.tablethide{display:none;}
+}
+
+
+/**************************************************************************************/
+/**************************************************************************************/
+
+
+
+@media screen and (max-width: 640px) {
+
+/* phone styles */
+
+.phonehide {
+	display: none;
+	height:0;
+}
+
+	#container {
+		margin: 0 6px;
+	}
+
+	#logoheader {
+		text-align: right;
+		margin: 0 0 0 0;
+		padding-right: 0px;
+		width: 100%;
+		height:40px;
+		display: block;
+	 	}
+		
+
+	h1 {
+		font-size:1.4rem;
+		position:static;
+		float:left;
+		margin:8px 0 0 2px;
+		text-align:left;
+		display:inline-block;
+		height:30px;
+		line-height:.6em;
+		z-index:2;
+		width:50%;
+	}
+
+	h2 {
+		position:absolute;
+		top:13px;
+		right:0;
+		margin:0 0 0 0;
+		line-height:1em;
+		height:15px;
+		width:50%;
+	}
+	h2 a {
+		position:static;
+		margin:0 0 0 4%;
+		padding:6px 12px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	h3 {
+		display:none;
+	}
+
+	.buttonbar {
+		position:relative;
+		top:0;
+		left:0;
+		right:0;
+		width:100%;
+		height:auto;
+		text-align: right;
+		font-size:0;
+		margin: 0 0 6px 0;
+		padding: 0 0 0 0;
+	}
+
+	.buttonon, .buttonoff {
+		text-align:center;
+		margin: 0 2% 0 0; /* 6px */
+		height: 60px;
+		width: 18.4%; /* 55px */
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+			-webkit-transition:none;
+			-moz-transition:none;
+			transition:none;
+	}
+	.buttonon:hover, .buttonoff:hover {
+		background-color: rgba(255,255,255,.8);
+		box-shadow: none;
+	}
+	.buttonoff, .buttonoff:hover {
+		opacity:0.5;
+		filter:alpha(opacity=50); /* For IE8 and earlier */
+	}
+
+
+	.musicbutton {
+		margin: 0 0 0 0;
+	}
+	.buttonon img, .buttonoff img {
+		max-width: 40px;
+		height: 40px;
+		margin-top: 5px;
+	}
+
+	.list {
+		position:static;
+		padding:0;
+		margin: 0 0 10px 0;
+	}
+
+	.nontable {
+		padding:10px;
+	}
+
+
+.inputarea {
+	width:100%;
+	text-align:center;
+	font: .9rem "Courier", "Liberation Mono", monospace;
+	line-height: 1.75em;
+	color: #444;
+	white-space:nowrap;
+}
+
+	form {
+		text-align:right;
+		width:100%;
+		min-width:auto;
+		margin:0;
+	}
+
+	label {
+		display:block;
+		text-align:left;
+	}
+	.inputarea ol {
+		text-align:right;
+		width:100%;
+		margin-left:auto;
+		margin-right:0px;
+	}
+	.inputcomment {
+		font: .8rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		line-height: 1rem;
+		text-align:center;
+		padding: 5px 0;
+		color: #777;
+		white-space:normal;
+	}
+
+		#id_name,
+		#id_artist,
+		#id_type, 
+		#id_progress, 
+		#id_rating, 
+		#id_comment,
+		#id_username,
+		#id_email,
+		#id_password1,
+		#id_password2,
+		#id_old_password,
+		#id_new_password1,
+		#id_new_password2,
+		#id_subject,
+		#username,
+		#password {
+			width:100%; 
+			height: 1.9em; 
+			padding:3px; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			margin-bottom: 2px;
+		}
+		#id_username,
+		#id_email,
+		#id_password1,
+		#id_password2,
+		#username,
+		#password {
+			width:100%; 
+		}
+		#contactform #id_email {
+			width:100%; 		
+		}
+
+		#id_finished {
+			vertical-align:middle;
+			text-align:left;
+		}
+		label#finished {display:inline-block;}
+		#id_message {
+			width:100%; 
+			height:125px; 
+			padding:3px; 
+			vertical-align:top; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		}
+
+		#id_link1, #id_link2, #id_link3 {
+			width:100%; 
+			padding:3px; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		}
+
+	#sharelink {
+		width:90%;
+		font: 1em "Courier",  "Liberation Mono",monospace;
+		color: #555;
+	}
+		
+	.sortcategory {
+		display:block;
+		text-align:center;
+	}
+
+	.sortmenu {
+		margin: 0;
+		width:100%; 
+	}
+
+
+	#userpic_upload {
+		text-align:center;
+	}
+
+	#userpic_upload form {
+		border:1px solid #e0e0e0;
+		width:182px;
+		min-width:auto;
+		margin:auto;
+		padding:25px 0 28px 0;
+		text-align:center;
+	}
+	#userpic_upload img {
+		border:1px solid #e0e0e0;
+		margin:auto;
+		padding:10px 40px 10px 40px;
+	}
+
+	h6 {
+		margin:0 auto 0 auto;
+		text-align:center;
+		width:100%;
+		font: 1.375em "Courier", "Liberation Mono", monospace;
+		color: #333;
+	} 
+
+	.error, .errorlist {
+		text-align:left;
+	}
+
+
+
+
+	.rightbox {
+		position:static;
+		height:auto;
+		width:100%;
+		margin:30px 0 0 0;
+		padding:30px 0 0 0;
+		border-left-style:none;
+		border-top-style:solid;
+	}
+
+	hr {
+		width:100%;
+	}
+
+	#userpic {
+		margin: 5px 25px 25px 5px;
+	}
+
+	#splash{
+		font-size: .8em;
+	}
+
+	.frontlinks p {
+		font-size: .9em;
+		letter-spacing: normal;
+	}
+
+	#home_footer {
+		margin: 6rem auto 6px auto;
+	}
+
+	#newbutton {
+		letter-spacing:normal;
+		text-align:center;
+		border:0 #ddd solid;
+		box-shadow: 1px 1px 2px rgba(40,40,40,.3) ;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		margin:6px 0;
+		padding:6px 12px;
+		height:32px;
+		width:auto;
+		font: .9rem "Courier", "Liberation Mono", monospace;
+		line-height: 1.4em;
+		background-color: rgba(255,255,255,.8);
+		color: #83B;
+
+	}
+		#newbutton:hover {
+		background-color: rgba(255,255,255,.8);
+	}
+
+	.numcol {width:9%;}
+	.morecol {width:9%;}
+
+	#tvlist .namecol {width:62%;}
+	#tvlist .progcol {width:20%;}
+	#movielist .namecol {width:64%;}
+	#movielist .ratingcol {width:18%;}
+	#booklist .namecol {width:43%;}
+	#booklist .artistcol {width:39%;}
+	#gamelist .namecol {width:49%;}
+	#gamelist .artistcol {width:33%;}
+	#musiclist .namecol {width:43%;}
+	#musiclist .artistcol {width:39%;}
+
+}

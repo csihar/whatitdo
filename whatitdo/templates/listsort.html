@@ -10,8 +10,8 @@
 <p class="inputcomment">Your lists will be sorted by the following categories:</p>
 
 <div class="fieldWrapper">
-<label for="tvsort1">TV: 1.</label>
-<select name="tvsort1" id="sortmenu">
+<label for="tvsort1"><span class="sortcategory">TV:</span> 1.</label>
+<select name="tvsort1" class="sortmenu">
 <option value="name" {% if tvsort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if tvsort1_old == "artist" %} selected="selected" {% endif %}>Studio</option>
 <option value="type" {% if tvsort1_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -29,7 +29,7 @@
 
 <div class="fieldWrapper">
 <label for="tvsort2">2.</label>
-<select name="tvsort2" id="sortmenu">
+<select name="tvsort2" class="sortmenu">
 <option value="name" {% if tvsort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if tvsort2_old == "artist" %} selected="selected" {% endif %}>Studio</option>
 <option value="type" {% if tvsort2_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -46,10 +46,10 @@
 </div>
 
 <div class="fieldWrapper">
-<label for="moviesort1">Movies: 1.</label>
-<select name="moviesort1" id="sortmenu">
+<label for="moviesort1"><span class="sortcategory">Movies:</span> 1.</label>
+<select name="moviesort1" class="sortmenu">
 <option value="name" {% if moviesort1_old == "name" %} selected="selected" {% endif %}>Name</option>
-<option value="artist" {% if moviesort1_old == "artist" %} selected="selected" {% endif %}>Studio</option>
+<option value="artist" {% if moviesort1_old == "artist" %} selected="selected" {% endif %}>Director</option>
 <option value="type" {% if moviesort1_old == "type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if moviesort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if moviesort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
@@ -63,9 +63,9 @@
 
 <div class="fieldWrapper">
 <label for="moviesort2">2.</label>
-<select name="moviesort2" id="sortmenu">
+<select name="moviesort2" class="sortmenu">
 <option value="name" {% if moviesort2_old == "name" %} selected="selected" {% endif %}>Name</option>
-<option value="artist" {% if moviesort2_old == "artist" %} selected="selected" {% endif %}>Studio</option>
+<option value="artist" {% if moviesort2_old == "artist" %} selected="selected" {% endif %}>Director</option>
 <option value="type" {% if moviesort2_old == "type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if moviesort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if moviesort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
@@ -78,8 +78,8 @@
 </div>
 
 <div class="fieldWrapper">
-<label for="booksort1">Books: 1.</label>
-<select name="booksort1" id="sortmenu">
+<label for="booksort1"><span class="sortcategory">Books:</span> 1.</label>
+<select name="booksort1" class="sortmenu">
 <option value="name" {% if booksort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if booksort1_old == "artist" %} selected="selected" {% endif %}>Author</option>
 <option value="type" {% if booksort1_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -97,7 +97,7 @@
 
 <div class="fieldWrapper">
 <label for="booksort2">2.</label>
-<select name="booksort2" id="sortmenu">
+<select name="booksort2" class="sortmenu">
 <option value="name" {% if booksort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if booksort2_old == "artist" %} selected="selected" {% endif %}>Author</option>
 <option value="type" {% if booksort2_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -114,8 +114,8 @@
 </div>
 
 <div class="fieldWrapper">
-<label for="gamesort1">Games: 1.</label>
-<select name="gamesort1" id="sortmenu">
+<label for="gamesort1"><span class="sortcategory">Games:</span> 1.</label>
+<select name="gamesort1" class="sortmenu">
 <option value="name" {% if gamesort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if gamesort1_old == "artist" %} selected="selected" {% endif %}>Platform</option>
 <option value="type" {% if gamesort1_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -133,7 +133,7 @@
 
 <div class="fieldWrapper">
 <label for="gamesort2">2.</label>
-<select name="gamesort2" id="sortmenu">
+<select name="gamesort2" class="sortmenu">
 <option value="name" {% if gamesort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if gamesort2_old == "artist" %} selected="selected" {% endif %}>Platform</option>
 <option value="type" {% if gamesort2_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -150,8 +150,8 @@
 </div>
 
 <div class="fieldWrapper">
-<label for="musicsort1">Music: 1.</label>
-<select name="musicsort1" id="sortmenu">
+<label for="musicsort1"><span class="sortcategory">Music:</span> 1.</label>
+<select name="musicsort1" class="sortmenu">
 <option value="name" {% if musicsort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if musicsort1_old == "artist" %} selected="selected" {% endif %}>Artist</option>
 <option value="type" {% if musicsort1_old == "type" %} selected="selected" {% endif %}>Type</option>
@@ -167,7 +167,7 @@
 
 <div class="fieldWrapper">
 <label for="musicsort2">2.</label>
-<select name="musicsort2" id="sortmenu">
+<select name="musicsort2" class="sortmenu">
 <option value="name" {% if musicsort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if musicsort2_old == "artist" %} selected="selected" {% endif %}>Artist</option>
 <option value="type" {% if musicsort2_old == "type" %} selected="selected" {% endif %}>Type</option>

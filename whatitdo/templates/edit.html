@@ -35,13 +35,18 @@
 
     <div class="fieldWrapper">
         {{ form.name.errors }} 
+        {% if current == "tv" or current == "movies" or current == "games" %}
         <label for="id_name">Name:</label>
+        {% elif current == "music" or current == "books" %}
+        <label for="id_name">Title:</label>
+        {% endif %}
         {{ form.name }}
     </div>
     <div class="fieldWrapper">
         {{ form.artist.errors }} 
         <label for="id_artist">
-            {% if current == "tv" or current == "movies" %} Studio:
+            {% if current == "tv" %} Studio:
+            {% elif current == "movies" %} Director:
             {% elif current == "books" %} Author:
             {% elif current == "games" %} Platform:
             {% elif current == "music" %} Artist:
@@ -60,10 +65,17 @@
         {{ form.progress }}
 		</div>
     <div class="fieldWrapper">	
-		<label for="id_finished">Finished?</label>
+		<label for="id_finished" id="finished">Finished?</label>
 		{{ form.finished }}
     </div>
     {% endif %}
+    {% if current == "music" %}
+    <div class="fieldWrapper">
+        {{ form.progress.errors }} 
+        <label for="id_progress">Year:</label>
+        {{ form.progress }}
+        </div>
+   {% endif %}
     <div class="fieldWrapper">
         {{ form.rating.errors }} 
         <label for="id_rating">Rating:</label>

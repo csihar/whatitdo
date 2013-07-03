@@ -20,9 +20,9 @@ class Item(models.Model):
 	modified = models.DateTimeField(auto_now=True)	
 	name = models.CharField(max_length=70, validators=[ MaxLengthValidator(70) ])
 	category = models.CharField(max_length=5, choices=CATEGORY_CHOICES)
-	artist = models.CharField(max_length=70, blank=True, validators=[ MaxLengthValidator(70) ]) # use as "author" in books, "platform" in games, "studio" in tv/movies
+	artist = models.CharField(max_length=70, blank=True, validators=[ MaxLengthValidator(70) ]) # use as "author" in books, "platform" in games, "studio" in tv, "director" in movies
 	type = models.CharField(max_length=50, blank=True, validators=[ MaxLengthValidator(50) ])
-	progress = models.CharField(max_length=30, blank=True, validators=[ MaxLengthValidator(30) ]) # ignore in music and movies
+	progress = models.CharField(max_length=30, blank=True, validators=[ MaxLengthValidator(30) ]) # use as "year" in music, ignore in movies
 	finished = models.BooleanField(default=False)
 	rating = models.IntegerField(max_length=3, blank=True, null=True, validators=[ MinValueValidator(0),MaxValueValidator(100) ])
 	comment = models.CharField(max_length=140, blank=True, validators=[ MaxLengthValidator(140) ])

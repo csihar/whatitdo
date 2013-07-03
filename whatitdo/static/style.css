@@ -1,13 +1,14 @@
 * {
 	-webkit-box-sizing: border-box;
    	-moz-box-sizing: border-box;
+   	-ms-box-sizing: border-box;
     box-sizing: border-box;
 	} 
 
 	.clearfix:before,
 	.clearfix:after {
-	    content: " "; /* 1 */
-	    display: table; /* 2 */
+	    content: " ";
+	    display: table;
 	}
 	.clearfix:after {
 	    clear: both;
@@ -15,7 +16,7 @@
 
 	.alignleft {float: left;}
 	.alignright {float: right;}
-	
+
 
 html {
 	height:100%;
@@ -67,12 +68,15 @@ html {
 	}
 
 	h1 {
-		font: bold 38px Courier, "Liberation Mono", monospace;
-		letter-spacing: -3px;
+		font: 38px "Courier", "Liberation Mono", monospace;
+		letter-spacing: -2px;
+		font-weight: 700;
 	}
 
 	h2 {
 		font: .9em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		line-height: 1em;
+		padding: 1px 0;
 	}
 	h2 a:hover {text-decoration:underline;}
 	
@@ -86,25 +90,25 @@ html {
 		text-align:left;
 		-moz-border-radius: 7px;
 		border-radius: 7px;
-		font: 25px Courier, "Liberation Mono", monospace;
-		line-height:27px;
+		font: 25px "Courier", "Liberation Mono", monospace;
 		letter-spacing: -1px;
 		color: #f2f2f2;
 		padding: 5px 0 5px 30px;
-		margin: -1px 0px 12px 0px;
+		margin: 0px 0px 12px 0px;
+		line-height:29px;
 	}
 	
 	h4 {
 		margin: auto;
 		text-align:center;
 		width:70%;
-		font: 1.375em Courier, "Liberation Mono", monospace;
+		font: 1.375em "Courier", "Liberation Mono", monospace;
 		color: #333;
 		}
 
 	h5 {
 		margin: auto;
-		font: 1.25em Courier, "Liberation Mono", monospace;
+		font: 1.25em "Courier", "Liberation Mono", monospace;
 		color: #333;
 		}
 		
@@ -112,7 +116,7 @@ html {
 		margin:0 auto 0 auto;
 		text-align:center;
 		width:50%;
-		font: 1.375em Courier, "Liberation Mono", monospace;
+		font: 1.375em "Courier", "Liberation Mono", monospace;
 		color: #333;
 	} h6 small {
 		font: .688em "Helvetica Neue", "Helvetica", Arial, sans-serif;
@@ -140,9 +144,8 @@ html {
 		vertical-align: top;
 		text-align: right;
  		}
-	
-	.buttonon {
-		background-color: rgba(255,255,255,.75);
+	.buttonon, .buttonoff {
+		background-color: rgba(255,255,255,.8);
 		height:90px;
 		width:90px;
 		margin: 0 0 10px 0;
@@ -150,21 +153,39 @@ html {
 		border-radius: 10px;
 		padding: 10px;
 		display:block;
+		border:0 solid transparent;
+		box-shadow: 0;
+		-webkit-transition:background-color .1s linear, opacity .1s ease, box-shadow .2s ease;
+		-moz-transition:background-color .1s linear, opacity .1s ease, box-shadow .2s ease;
+		transition:background-color .1s linear, opacity .1s ease, box-shadow .2s ease;
 		}
+	.buttonon:hover, .buttonoff:hover {
+		background-color: rgba(252,252,252,1);
+		box-shadow: 0px 0px 13px rgba(255,255,255,.8);
+	}
 
 	.buttonoff {
-		background-color: rgba(255,255,255,.75);
-		height:90px;
-		width:90px;
-		margin: 0 0 10px 0;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		padding: 10px;
-		opacity:0.4;
-		filter:alpha(opacity=40); /* For IE8 and earlier */
-		display:block;
-		}
-	
+		opacity:0.5;
+		filter:alpha(opacity=50); /* For IE8 and earlier */
+	}
+	.buttonoff:hover {
+		opacity:0.75;
+		filter:alpha(opacity=75); /* For IE8 and earlier */
+	}
+	.buttonoff img, .buttonon img {
+		width:70px;
+	}
+	.staticbutton {
+		-webkit-transition:none;
+		-moz-transition:none;
+		transition:none;
+	}
+	.staticbutton:hover {
+		background-color: rgba(255,255,255,.8);
+		box-shadow:none;
+		opacity:0.5;
+		filter:alpha(opacity=50); /* For IE8 and earlier */		
+	}
 
 .list {
 	position: absolute;
@@ -172,12 +193,12 @@ html {
 	right: 20px;
 	min-height: 490px;
 	min-width:750px;
-	background-color: rgba(255,255,255,.75);
+	background-color: rgba(255,255,255,.8);
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	border: 1px solid #ddd;
 	margin: 0 0 20px 10px;
-	padding: 15px;
+	padding: 14px 15px;
 	display: block;
 	vertical-align: top;
 	white-space: normal;
@@ -191,8 +212,6 @@ html {
 		font-size:0;
 		border: 0 solid #ccc;
 		text-align:left;
-		/* -moz-border-radius: 8px;
-		border-radius: 8px; */
 		overflow:visible;
 		}
 	section a {color: #73A;}
@@ -207,7 +226,7 @@ html {
 		top:0;
 		right:0;
 		padding: 3px 6px 0 0; 
-		width:36px;
+		width:38px;
 		height:100%;
 		background:inherit;
 		background:-webkit-linear-gradient(left, rgba(252,252,252,0), rgba(252,252,252,1) 45%);
@@ -229,7 +248,8 @@ html {
 	.listcell, .listhead {
 		position:relative;
 		background-color: #fcfcfc;
-		font: .8rem  "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		font-size: .8rem;
 		line-height: 22px;
 		display:inline-block;
 		margin:0;
@@ -239,13 +259,14 @@ html {
 		height:32px;
 		vertical-align:top;
 		overflow:hidden;
-		text-overflow:ellipsis;
+ 		white-space:nowrap;		
+ 		text-overflow:ellipsis;
 	}
 	.listhead {
 		border-top:1px solid #ccc; 
 		text-overflow:clip; 
 		overflow:visible; 
-		font-weight:bold;
+		font-weight:700;
 	}
 
 	/* base column widths */
@@ -259,10 +280,11 @@ html {
 		.morecol::selection {background: transparent;}
 
 	/* adjusted column widths */
-	#movielist .namecol {width:43%;}
-	#movielist .typecol {width:21%;}
-	#musiclist .artistcol {width:28%;}
-
+	#movielist .namecol {width:41%;}
+	#movielist .artistcol {width:22%;}
+	#movielist .typecol {width:19%;}
+	#musiclist .artistcol {width:20%;}
+	#musiclist .progcol {width:8%;}
 
 		.drawer {
 			width:100%; 
@@ -276,13 +298,52 @@ html {
 			/* display:none; */
 			background-color:#ddd; 
 			box-shadow: 0px 2px 6px rgba(0,0,0,.2) inset;
+ 			white-space:normal;		
 		}
-		.drawer .comment:before {
-			content:"Comment: ";
-			font: 1em Courier, "Liberation Mono", monospace;
-			font-weight: bold;
-			/* font-style: italic; */
+		.studiocom, 
+		.typecom, 
+		.ratingcom, 
+		.directorcom, 
+		.progcom, 
+		.authorcom, 
+		.yearcom {
+			margin-bottom:0;
 		}
+		.comment:before, 
+		.studiocom:before, 
+		.typecom:before, 
+		.ratingcom:before, 
+		.directorcom:before, 
+		.progcom:before, 
+		.authorcom:before, 
+		.yearcom:before {
+			font: 1em "Courier", "Liberation Mono", monospace;
+			font-weight: 700;
+		}
+			.comment:before {
+				content:"Comment: ";
+			}
+			.studiocom:before {
+				content:"Studio: ";
+			}
+			.typecom:before {
+				content:"Type: ";
+			}
+			.ratingcom:before {
+				content:"Rating: ";
+			}
+			.directorcom:before {
+				content:"Director: ";
+			}
+			.progcom:before {
+				content:"Progress: ";
+			}
+			.authorcom:before {
+				content:"Author: ";
+			}
+			.yearcom:before {
+				content:"Year: ";
+			}
 
 
 .nontable {
@@ -292,8 +353,6 @@ html {
 	background-color: #fcfcfc;
 	border: 1px solid #ccc;
 	text-align:left;
-	/* -moz-border-radius: 10px;
-	border-radius: 10px; */
 	padding: 30px 30px 30px 30px;
 }
 	.nontable a {color: #73A;}
@@ -343,10 +402,22 @@ html {
 		background-color: #bbb;
 		}
 
+	#demoblurb {
+		font-size:.95em;
+		line-height: 1.4em;
+		color: #999;
+	}
+	#demoblurb p {
+		margin:0 10px 1.4em 0;
+	}
+	#demoblurb a {
+		color:#2b9;
+	}
+
 .inputarea {
 	width:100%;
 	text-align:center;
-	font: .9rem Courier, "Liberation Mono", monospace;
+	font: .9rem "Courier", "Liberation Mono", monospace;
 	line-height: 1.75em;
 	color: #444;
 	white-space:nowrap;
@@ -396,6 +467,9 @@ html {
 	#id_email,
 	#id_password1,
 	#id_password2,
+	#id_old_password,
+	#id_new_password1,
+	#id_new_password2,
 	#id_subject,
 	#username,
 	#password {
@@ -435,18 +509,22 @@ html {
 	}
 
 	#sharelink {
-	width:90%;
-	font: 1em Courier,  "Liberation Mono",monospace;
-	color: #555;
+		width:95%;
+		font: 1em "Courier",  "Liberation Mono",monospace;
+		color: #555;
 	}
 	
-	#sortmenu {
-	width:18em; 
-	padding:3px; 
-	font: .9em "Helvetica Neue", "Helvetica", Arial, sans-serif;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid #999;
+	.sortcategory {
+		font-weight:700;
+	}
+
+	.sortmenu {
+		width:18em; 
+		padding:0 5px; 
+		font: .9em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		border: 1px solid #999;
 	}
 
 	#userpic_upload form {
@@ -470,21 +548,25 @@ html {
 	}
 
 	#splash strong {
-		font-family: Courier, "Liberation Mono", monospace;
+		font-family: "Courier", "Liberation Mono", monospace;
 		color: #333;
 		font-size:1.25em;
-		font-weight:bold;
+		font-weight:700;
 		letter-spacing:-1px;
 	}
 	
-	#home_footer {
-	margin:125px auto -20px auto;
-	padding:0;
-	border:0;
-	font: .688em "Helvetica Neue", "Helvetica", Arial, sans-serif;
-	color: #aaa;	
+	.frontlinks p {
+		font: 1.1rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		letter-spacing:1px;
 	}
-	#home_footer a {color: #aaa;}
+	#home_footer {
+		margin:100px auto -20px auto;
+		padding:0;
+		border:0;
+		font: .688em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		color: #999;	
+	}
+	#home_footer a {color: #999;}
 	#home_footer a:hover {text-decoration:underline;}
 	
 
@@ -505,21 +587,26 @@ html {
 	-webkit-transition:background-color .2s ease;
 	-moz-transition:background-color .2s ease;
 	transition:background-color .2s ease;
-}
+	}
 	#newbutton:hover {
-		background-color: rgba(255,255,255,.32);
+		background-color: rgba(255,255,255,.35);
 	}
 
 	.arrow {
-	display:inline-block;
-	position:relative;
-	height:0;
-	width:0;
-	margin:auto;
-	top:3px;
-	border-bottom:4px transparent solid;
-	border-top:4px #73A solid;
-	border-right:4px transparent solid;
-	border-left:4px transparent solid;
+		display:inline-block;
+		position:relative;
+		height:0;
+		width:0;
+		margin:auto;
+		top:3px;
+		border-bottom:4px transparent solid;
+		border-top:4px #73A solid;
+		border-right:4px transparent solid;
+		border-left:4px transparent solid;
 	}
+
+
+@media screen and (min-width: 889px) {
+	.desktophide {display:none;}
+}
 
