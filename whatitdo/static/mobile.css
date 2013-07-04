@@ -5,6 +5,12 @@
 		display:none;
 	}
 
+	#container {
+		max-width:100%;
+		min-height:100%;
+		padding:0 10px;
+	}
+
 	.buttonbar {
 		top: 10px;
 		left: 5px;
@@ -28,10 +34,13 @@
 
 
 	.list {
-		position: static;
-		min-height: auto;
-		min-width: auto;
-		margin: 0 10px 10px 10px;
+		position: relative;
+		left:0;
+		right:0;
+		min-height:0;
+		width:100%;
+		min-width:100%;
+		margin: 0 0 10px 0;
 		padding: 10px;
 		border-width:0;
 		-moz-border-radius: 5px;
@@ -41,8 +50,8 @@
 
 	#logoheader {
 		margin: 0 0 10px auto;
-		padding-right: 11px;
-		min-width: auto;
+		padding-right: 1px;
+		min-width: 100%;
 		width: auto;
 		height:80px;
  	}
@@ -64,7 +73,7 @@
 	}
 	h2 a {
 		margin-left:10px;
-		padding: 9px 16px;
+		padding: 8px 16px;
 		background-color: rgba(255,255,255,.8);
 		color: #83B;
 		text-align:center;
@@ -94,7 +103,7 @@
 	}
 
 	.nontable {
-		min-height:auto;
+		min-height:0;
 	}
 
 	form {
@@ -111,9 +120,10 @@
 	}
 
 	.rightbox {
-		margin:75px 0 0 30px;
-		padding:8px 5px 0 15px;
+		margin:0 0 0 30px;
+		padding:5px 5px 0 15px;
 		height:355px;
+		top:75px;
 	}
 	.rightbox a {
 		font-size:1.3em;
@@ -193,7 +203,7 @@
 
 	#newbutton {
 		margin:4px 4px;
-		line-height:27px;
+		line-height:28px;
 		height:27px;
 		width:50px;
 	}
@@ -242,7 +252,11 @@
 }
 
 #container {
-	margin: 0 6px;
+	padding: 0 6px;
+	min-height:0;
+	width:100%;
+	min-width:100%;
+	font-size:0;
 }
 
 	#logoheader {
@@ -250,8 +264,10 @@
 		margin: 0 0 0 0;
 		padding-right: 0px;
 		width: 100%;
+		min-width: 100%;
 		height:40px;
 		display: block;
+		font-size:1rem;
 	 }
 		
 
@@ -259,7 +275,8 @@
 		font-size:1.4rem;
 		position:static;
 		float:left;
-		margin:8px 0 0 2px;
+		margin:8px 0 0 0;
+		padding-left:2px;
 		text-align:left;
 		display:inline-block;
 		height:30px;
@@ -271,7 +288,7 @@
 	h2 {
 		position:absolute;
 		top:13px;
-		right:0;
+		right:6px;
 		margin:0 0 0 0;
 		line-height:1em;
 		height:15px;
@@ -279,7 +296,7 @@
 	}
 	h2 a {
 		position:static;
-		margin:0 0 0 4%;
+		margin:0 0 0 3.33%;
 		padding:6px 12px;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
@@ -304,18 +321,20 @@
 	left:0;
 	right:0;
 	width:100%;
+	min-width:100%;
 	height:auto;
-	text-align: right;
-	font-size:0;
-	margin: 0 0 6px 0;
-	padding: 0 0 0 0;
+	text-align: center;
+	margin: 0;
+	padding: 0 0 6px 0;
 	}
 
 	.buttonon, .buttonoff {
 		text-align:center;
-		margin: 0 2% 0 0; /* 6px */
+		margin-left:0;
+		margin-right:0;
+		margin: 0 2% 0 0;
 		height: 60px;
-		width: 18.4%; /* 55px */
+		width: 18.4%;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 			-webkit-transition:none;
@@ -331,21 +350,24 @@
 		filter:alpha(opacity=50); /* For IE8 and earlier */
 	}
 
-
 	.musicbutton {
-		margin: 0 0 0 0;
+		margin-right: 0;
 	}
 	.buttonon img, .buttonoff img {
 		max-width: 40px;
 		height: 40px;
-		margin-top: 5px;
+		margin: 5px auto 0 auto;
 	}
 
 .list {
-	position:static;
+	position:relative;
 	padding:0;
-	margin: 0 0 10px 0;
+	margin: 0 0 6px 0;
 	width:100%;
+	min-width:100%;
+	min-height:0;
+	background:transparent;
+	border:0 solid transparent;
 }
 
 .nontable {
@@ -354,17 +376,18 @@
 
 	.inputarea {
 		width:100%;
+		min-width:100%;
 		text-align:center;
 		font: .9rem "Courier", "Liberation Mono", monospace;
 		line-height: 1.75em;
 		color: #444;
-		white-space:nowrap;
+		white-space:normal;
 	}
 
 	form {
 		text-align:right;
 		width:100%;
-		min-width:auto;
+		min-width:100%;
 		margin:0;
 	}
 
@@ -377,7 +400,7 @@
 		text-align:right;
 		width:100%;
 		margin-left:auto;
-		margin-right:0px;
+		margin-right:0;
 	}
 
 	.inputcomment {
@@ -405,10 +428,11 @@
 		#id_subject,
 		#username,
 		#password {
-			width:100%; 
+			width:100%;
+			min-width:100%; 
 			height: 1.9em; 
 			padding:3px; 
-			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			font: 1rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
 			margin-bottom: 2px;
 		}
 		#id_username,
@@ -433,13 +457,13 @@
 			height:125px; 
 			padding:3px; 
 			vertical-align:top; 
-			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			font: 1rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
 		}
 
 		#id_link1, #id_link2, #id_link3 {
 			width:100%; 
 			padding:3px; 
-			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			font: 1rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
 		}
 
 	#sharelink {
@@ -498,6 +522,13 @@
 		margin: 5px 25px 25px 5px;
 	}
 
+	#userhomecontent {
+		min-height: 0;
+		font-size: .85rem;
+	}
+	#userhomecontent big {
+		font-size:1.1em;
+	}
 	#userhomecontent h5 {
 		margin-top: 5px;
 	}

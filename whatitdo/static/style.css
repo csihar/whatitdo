@@ -19,27 +19,26 @@
 
 
 html {
-	height:100%;
 	background-color: #f4f4f4;
 	background-image:url('./bg.png');
 	background-position:top left;
 	background-attachment:fixed; 
 	background-repeat:repeat-x;
 	color: #666;	
+	width:100%;
 	}
 
 	body {
+		height:100%;
 		width:100%;
-		margin: 0 auto 10px auto;
-		border:0;
-		padding: 0;
 		text-align: center;
 		font: 100% "Helvetica Neue", "Helvetica", Arial, sans-serif;
 	}
 
 	#container {
 		position:relative;
-		margin: 0 auto;
+		top:0;
+		margin: 0 auto 10px auto;
 		width: auto;
 		max-width:1250px;
 		min-height: 600px;
@@ -347,7 +346,7 @@ html {
 
 
 .nontable {
-	font-size:.875em;
+	font-size:.875rem;
 	width: auto;
 	min-height: 406px;
 	background-color: #fcfcfc;
@@ -387,7 +386,7 @@ html {
 		width:45%;
 		border:1px none #bbb;
 		border-left-style:solid;
-		padding:8px 10px 5px 25px;
+		padding:5px 10px 5px 25px;
 		margin:0 0 0 10px;
 		}
 	.rightbox a {
@@ -416,7 +415,7 @@ html {
 	}
 	#demoblurb a {
 		color:#2b9;
-		font-size:.78rem;
+		font-size:.8rem;
 	}
 
 .inputarea {
