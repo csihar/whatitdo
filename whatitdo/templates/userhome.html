@@ -38,7 +38,9 @@ music: <em>{{musicsize}}</em><br />
 <p><a href="/accounts/change_password/">Change password</a></p>
 <p><a href="/contact/">Contact admin</a></p>
 <p><a href="/accounts/logout/?next=/">Logout</a></p>
-	<br /><div class="phonehide"><br />
+	<br />
+<!--
+	<div class="phonehide"><br />
 <p>Copy and paste these links to share your lists:</p>
 <p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.herokuapp.com/~{{listowner}}" /></p>
 <p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.herokuapp.com/~{{listowner}}/tv" /></p>
@@ -47,6 +49,7 @@ music: <em>{{musicsize}}</em><br />
 <p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.herokuapp.com/~{{listowner}}/games" /></p>
 <p><input type="text" onfocus="this.select()" onMouseUp="return false" id="sharelink" readonly="readonly" value="http://whatitdo.herokuapp.com/~{{listowner}}/music" /></p>
 </div>
+-->
 
 </div>
 {% endif %}
@@ -55,7 +58,7 @@ music: <em>{{musicsize}}</em><br />
 {% if listowner == "oz" and user.username != "oz" %}
 <div class="rightbox" id="demoblurb">
 <p>Here's an example of a typical <strong>what.it.do</strong> user's homepage. <span class="mobilehide">Click</span><span class="desktophide">Tap</span> an icon to go to a list!</p>
-<p>There are several different ways to use your lists. <br />For example, "oz" here uses his <a href="/~{{listowner}}/games">video game list</a> to catalog his collection by platform, his <a href="/~{{listowner}}/tv">tv list</a> to keep track of which episode he watched last, and his <a href="/~{{listowner}}/music">music list</a> as a "top ten" list.</p>
+<p>There are several different ways to use your lists. For example, "oz" here uses his <a href="/~{{listowner}}/games">video game list</a> to catalog his collection by platform, his <a href="/~{{listowner}}/tv">tv list</a> to keep track of which episode he watched last, and his <a href="/~{{listowner}}/music">music list</a> as a "top ten" list.</p>
 <p>Fun fact: what.it.do is a responsive website, meaning it displays differently for different window sizes. Try it out! We're optimized for desktop, tablet, and phone sizes.</p>
 <p>Questions? Feedback? <a href="/contact/">Hit me up.</a></p>
 </div>

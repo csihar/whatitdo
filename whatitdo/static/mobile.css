@@ -49,7 +49,8 @@
 
 
 	h1 {
-		font: 1.8rem "Courier", "Liberation Mono", monospace;
+		font: 1.7rem "Courier", "Liberation Mono", monospace;
+		line-height: 34px;
 		letter-spacing: -1px;
 		font-weight: 700;
 		padding:6px 1px 0 0;
@@ -63,7 +64,7 @@
 	}
 	h2 a {
 		margin-left:10px;
-		padding: 10px 18px;
+		padding: 9px 16px;
 		background-color: rgba(255,255,255,.8);
 		color: #83B;
 		text-align:center;
@@ -98,9 +99,10 @@
 
 	form {
 		text-align:right;
-		width:50%;
+		width:78%;
 		min-width:400px;
-		margin:0 30% 0 5%;
+		margin:0;
+		padding:0 0 0 0;
 	}
 
 
@@ -110,12 +112,16 @@
 
 	.rightbox {
 		margin:75px 0 0 30px;
-		padding:5px 5px 0 15px;
+		padding:8px 5px 0 15px;
 		height:355px;
 	}
+	.rightbox a {
+		font-size:1.3em;
+	}
+
 	#userhomecontent {
 		min-height: 400px;
-		font-size: .8em;
+		font-size: .75em;
 	}
 	#userhomecontent big {
 		font-size:1em;
@@ -127,10 +133,68 @@
 		color: #555;
 	}
 
+/*		#id_name,
+		#id_artist,
+		#id_type, 
+		#id_progress, 
+		#id_rating, 
+		#id_comment,
+		#id_username,
+		#id_email,
+		#id_password1,
+		#id_password2,
+		#id_old_password,
+		#id_new_password1,
+		#id_new_password2,
+		#id_subject,
+		#username,
+		#password {
+			width:20em; 
+			height: 1.9em; 
+			padding:3px; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			margin-bottom: 2px;
+		}
+		#id_username,
+		#id_email,
+		#id_password1,
+		#id_password2,
+		#username,
+		#password {
+			width:17em; 
+		}
+		#id_old_password,
+		#id_new_password1,
+		#id_new_password2 {
+			width:12em;
+		}
+		#contactform #id_email {
+			width:20em; 		
+		}
+
+		#id_finished {
+			vertical-align:middle;
+		}
+		#id_message {
+			width:20em; 
+			height:125px; 
+			padding:3px; 
+			vertical-align:top; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		}
+
+		#id_link1, #id_link2, #id_link3 {
+			width:20em; 
+			padding:3px; 
+			font: 1em "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		}
+*/
+
+
 	#newbutton {
-		margin:5px 5px;
-		line-height:25px;
-		height:25px;
+		margin:4px 4px;
+		line-height:27px;
+		height:27px;
 		width:50px;
 	}
 
@@ -177,9 +241,9 @@
 	height:0;
 }
 
-	#container {
-		margin: 0 6px;
-	}
+#container {
+	margin: 0 6px;
+}
 
 	#logoheader {
 		text-align: right;
@@ -188,7 +252,7 @@
 		width: 100%;
 		height:40px;
 		display: block;
-	 	}
+	 }
 		
 
 	h1 {
@@ -201,7 +265,7 @@
 		height:30px;
 		line-height:.6em;
 		z-index:2;
-		width:50%;
+		width:40%;
 	}
 
 	h2 {
@@ -211,7 +275,7 @@
 		margin:0 0 0 0;
 		line-height:1em;
 		height:15px;
-		width:50%;
+		width:60%;
 	}
 	h2 a {
 		position:static;
@@ -220,21 +284,31 @@
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 	}
+
 	h3 {
 		display:none;
 	}
-
-	.buttonbar {
-		position:relative;
-		top:0;
-		left:0;
-		right:0;
+	
+	h6 {
+		margin:0 auto 0 auto;
+		text-align:center;
 		width:100%;
-		height:auto;
-		text-align: right;
-		font-size:0;
-		margin: 0 0 6px 0;
-		padding: 0 0 0 0;
+		font: 1.375em "Courier", "Liberation Mono", monospace;
+		color: #333;
+	} 
+
+
+.buttonbar {
+	position:relative;
+	top:0;
+	left:0;
+	right:0;
+	width:100%;
+	height:auto;
+	text-align: right;
+	font-size:0;
+	margin: 0 0 6px 0;
+	padding: 0 0 0 0;
 	}
 
 	.buttonon, .buttonoff {
@@ -267,25 +341,25 @@
 		margin-top: 5px;
 	}
 
-	.list {
-		position:static;
-		padding:0;
-		margin: 0 0 10px 0;
-	}
-
-	.nontable {
-		padding:10px;
-	}
-
-
-.inputarea {
+.list {
+	position:static;
+	padding:0;
+	margin: 0 0 10px 0;
 	width:100%;
-	text-align:center;
-	font: .9rem "Courier", "Liberation Mono", monospace;
-	line-height: 1.75em;
-	color: #444;
-	white-space:nowrap;
 }
+
+.nontable {
+	padding:10px;
+}
+
+	.inputarea {
+		width:100%;
+		text-align:center;
+		font: .9rem "Courier", "Liberation Mono", monospace;
+		line-height: 1.75em;
+		color: #444;
+		white-space:nowrap;
+	}
 
 	form {
 		text-align:right;
@@ -298,12 +372,14 @@
 		display:block;
 		text-align:left;
 	}
+
 	.inputarea ol {
 		text-align:right;
 		width:100%;
 		margin-left:auto;
 		margin-right:0px;
 	}
+
 	.inputcomment {
 		font: .8rem "Helvetica Neue", "Helvetica", Arial, sans-serif;
 		line-height: 1rem;
@@ -368,20 +444,19 @@
 
 	#sharelink {
 		width:90%;
-		font: 1em "Courier",  "Liberation Mono",monospace;
+		font: 1em "Courier",  "Liberation Mono", monospace;
 		color: #555;
 	}
 		
-	.sortcategory {
-		display:block;
-		text-align:center;
-	}
-
 	.sortmenu {
 		margin: 0;
 		width:100%; 
 	}
 
+	.sortcategory {
+		display:block;
+		text-align:center;
+	}
 
 	#userpic_upload {
 		text-align:center;
@@ -401,20 +476,9 @@
 		padding:10px 40px 10px 40px;
 	}
 
-	h6 {
-		margin:0 auto 0 auto;
-		text-align:center;
-		width:100%;
-		font: 1.375em "Courier", "Liberation Mono", monospace;
-		color: #333;
-	} 
-
 	.error, .errorlist {
 		text-align:left;
 	}
-
-
-
 
 	.rightbox {
 		position:static;
@@ -434,6 +498,10 @@
 		margin: 5px 25px 25px 5px;
 	}
 
+	#userhomecontent h5 {
+		margin-top: 5px;
+	}
+
 	#splash{
 		font-size: .8em;
 	}
@@ -445,6 +513,10 @@
 
 	#home_footer {
 		margin: 6rem auto 6px auto;
+	}
+
+	#demoblurb {
+		padding-top:20px;
 	}
 
 	#newbutton {
@@ -467,6 +539,7 @@
 		#newbutton:hover {
 		background-color: rgba(255,255,255,.8);
 	}
+
 
 	.numcol {width:9%;}
 	.morecol {width:9%;}
