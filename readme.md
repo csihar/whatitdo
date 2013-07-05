@@ -5,21 +5,20 @@ what.it.do
 
 Catalog your collections, rate your favorites, keep track of your progress, and share your lists with your friends!
 
-[Here's an example page.](http://whatitdo.herokuapp.com/~oz)
-This site is responsive, so the layout will change depending on your window size. Try it out!
+[Here's an example page.](http://whatitdo.herokuapp.com/~oz)<br />
+This site is responsive, so the layout will change depending on your window size. Try it out!<br />
 Optimized for desktop, tablet, and phone screen widths.
 <br />
 <br />
 
-Design and coding by Kyle Sanders < ksanderspdx (at) gmail.com >
+Design and coding by Kyle Sanders < ksanderspdx (at) gmail.com ><br />
 I welcome any and all questions, feedback, job offers, etc.
 <br />
 <br />
 
 
-Incorporates elements from:
-* [Free Icon Set by WPZOOM](http://www.wpzoom.com/)
-* [Formalize](http://formalize.me/)
-* [Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/)
-
+Incorporates elements from:<br />
+[Free Icon Set by WPZOOM](http://www.wpzoom.com/)<br />
+[Formalize](http://formalize.me/)<br />
+[Eric Meyer's CSS Reset](http://meyerweb.com/eric/tools/css/)<br />
 Somewhat inspired by [MyAnimeList](http://www.myanimelist.net/)
