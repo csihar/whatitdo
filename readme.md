@@ -8,11 +8,13 @@ Catalog your collections, rate your favorites, keep track of your progress, and 
 [Here's an example page.](http://whatitdo.herokuapp.com/~oz)<br />
 This site is responsive, so the layout will change depending on your window size. Try it out!<br />
 Optimized for desktop, tablet, and phone screen widths.
+
 <br />
 <br />
 
 Design and coding by Kyle Sanders < ksanderspdx (at) gmail.com ><br />
 I welcome any and all questions, feedback, job offers, etc.
+
 <br />
 <br />
 
