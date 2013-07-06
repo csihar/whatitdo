@@ -11,6 +11,18 @@ $(document).ready(function(){
 		$('#demoblurb').delay(300).fadeIn(1000);
 	});
 
+	// blur title on mouseover
+	var blurtext = function() {
+	if ( $(window).width() > 888) {
+			$(this).addClass('blurry').delay('140').queue(function() {
+				$(this).removeClass('blurry');
+				$(this).dequeue();
+			});
+		}
+	};
+	$('h1 a').on('mouseover', blurtext);
+
+	
 	// show/hide individual drawers
 	$('.morecol').click(function(){
 		if ($(this).hasClass('is_open')) {

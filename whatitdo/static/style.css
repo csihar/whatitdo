@@ -70,7 +70,22 @@ html {
 		font: 38px "Courier", "Liberation Mono", monospace;
 		letter-spacing: -2px;
 		font-weight: 700;
+		text-shadow: none;
+		color:#fefefe;
 	}
+		.blurry {
+			text-shadow: 0 0 7px #fefefe;
+			color:transparent;
+		}
+		.blurry em {
+			text-shadow: 0 0 7px #2b9;
+			color:transparent;
+		}
+		h1 a, h1 a em {
+		-webkit-transition:text-shadow .03s linear, color .03s linear;
+		-moz-transition:text-shadow .03s linear, color .03s linear;
+		transition:text-shadow .03s linear, color .03s linear;
+		}
 
 	h2 {
 		font: .9em "Helvetica Neue", "Helvetica", Arial, sans-serif;
