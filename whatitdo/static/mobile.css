@@ -300,6 +300,7 @@
 		padding:6px 12px;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
+		box-shadow: 1px 1px 2px rgba(40,40,40,.25) ;
 	}
 
 	h3 {
@@ -335,6 +336,7 @@
 		margin: 0 2% 0 0;
 		height: 60px;
 		width: 18.4%;
+		box-shadow: 1px 1px 2px rgba(40,40,40,.25) ;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 			-webkit-transition:none;
@@ -554,10 +556,10 @@
 		letter-spacing:normal;
 		text-align:center;
 		border:0 #ddd solid;
-		box-shadow: 1px 1px 2px rgba(40,40,40,.3) ;
+		box-shadow: 1px 1px 2px rgba(40,40,40,.25) ;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
-		margin:6px 0;
+		margin:7px 0;
 		padding:6px 12px;
 		height:32px;
 		width:auto;

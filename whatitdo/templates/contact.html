@@ -7,7 +7,7 @@
 <div class="nontable">
 <div class="inputarea">
 
-  <form action="" method="post" id="contactform">{% csrf_token %}
+  <form action="" method="post" id="contactform" autocomplete="off">{% csrf_token %}
 <p class="inputcomment">Questions? Comments? Problems? Let us know!</p>
     <p>{{ form.errors }}</p>
 		{{form.as_p}}

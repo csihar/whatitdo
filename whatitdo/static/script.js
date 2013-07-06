@@ -3,7 +3,7 @@
 $(document).ready(function(){
 
 	// hide drawers - visible by default in case Javascript is off
-	$('.drawer').hide();
+	// $('.drawer').hide();
 
 	// fade demo blurb in
 	$('#demoblurb').ready(function() {

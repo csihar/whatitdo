@@ -59,7 +59,7 @@ html {
 	}
 
 	big {
-		font-size:1.1em;
+		font-size:1.2em;
 	}
 
 	small {
@@ -93,7 +93,7 @@ html {
 		letter-spacing: -1px;
 		color: #f2f2f2;
 		padding: 5px 0 5px 30px;
-		margin: 0px 0px 12px 0px;
+		margin: 0px 0px 10px 0px;
 		line-height:29px;
 	}
 	
@@ -148,9 +148,10 @@ html {
 		height:90px;
 		width:90px;
 		margin: 0 0 10px 0;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
+		-moz-border-radius: 7px;
+		border-radius: 7px;
 		padding: 10px;
+		line-height: 100%;
 		display:block;
 		border:0 solid transparent;
 		box-shadow: none;
@@ -193,11 +194,11 @@ html {
 	min-height: 490px;
 	min-width:750px;
 	background-color: rgba(255,255,255,.8);
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
 	border: 1px solid #ddd;
 	margin: 0 0 20px 10px;
-	padding: 14px 15px;
+	padding: 10px 10px;
 	display: block;
 	vertical-align: top;
 	white-space: normal;
@@ -213,12 +214,12 @@ html {
 		text-align:left;
 		overflow:visible;
 		}
-	section a {color: #73A;}
+	section a {color: #73A; height:100%; width:100%; display:block; text-align:left;}
 	section a:link {text-decoration:none;}
 	section a:hover {text-decoration:underline;}
 
 	.del {
-		z-index:2;
+		z-index:5;
 		text-align: right;
 		position:absolute; 
 		font-size:1.1rem;
@@ -231,6 +232,11 @@ html {
 		background:-webkit-linear-gradient(left, rgba(252,252,252,0), rgba(252,252,252,1) 45%);
 		background:-moz-linear-gradient(left, rgba(252,252,252,0), rgba(252,252,252,1) 45%);
 		background:-ms-linear-gradient(left, rgba(252,252,252,0), rgba(252,252,252,1) 45%);
+	}
+	.del a {
+		 text-align:right;
+		 display:inline;
+		 width:auto;
 	}
 	.del a:link {color:#999;text-decoration:none;}
 	.del a:hover {color:#d12;text-decoration:none;}
@@ -294,9 +300,9 @@ html {
 			border-bottom: 1px #ccc solid;
 			border-top: 0;
 			padding: 5px 8px 0;
-			/* display:none; */
+			display:none;
 			background-color:#ddd; 
-			box-shadow: 0px 2px 6px rgba(0,0,0,.2) inset;
+			box-shadow: 0px 2px 6px rgba(10,10,10,.2) inset;
  			white-space:normal;		
 		}
 		.studiocom, 
@@ -348,7 +354,7 @@ html {
 .nontable {
 	font-size:.875rem;
 	width: auto;
-	min-height: 406px;
+	min-height: 418px;
 	background-color: #fcfcfc;
 	border: 1px solid #ccc;
 	text-align:left;
@@ -573,7 +579,7 @@ html {
 		letter-spacing:normal;
 	}
 	#home_footer {
-		margin:100px auto -20px auto;
+		margin:110px auto -20px auto;
 		padding:0;
 		border:0;
 		font: .688em "Helvetica Neue", "Helvetica", Arial, sans-serif;

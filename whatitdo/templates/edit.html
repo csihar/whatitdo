@@ -14,14 +14,14 @@
 
 {{ form.non_field_errors }}
 {% if item_to_edit %}
-<form action="/~{{listowner}}/{{current}}/edit/{{item_to_edit.id}}" method="POST" id="edit_form">{% csrf_token %}
+<form action="/~{{listowner}}/{{current}}/edit/{{item_to_edit.id}}" method="POST" id="edit_form" autocomplete="off">{% csrf_token %}
 	<input type="hidden" name="id" value="{{item_to_edit.id}}" />
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
 	<input type="hidden" name="category" value="{{item_to_edit.category}}" />
 	<input type="hidden" name="created" value="{{item_to_edit.created}}" />
 	<input type="hidden" name="modified" value="{% now "DATETIME_FORMAT" %}" />
 {% else %}
-<form action="/~{{listowner}}/{{current}}/new" method="POST" id="edit_form">{% csrf_token %}
+<form action="/~{{listowner}}/{{current}}/new" method="POST" id="edit_form" autocomplete="off">{% csrf_token %}
 	<input type="hidden" name="item_creator" value="{{user.username}}" />
         {% if current == "tv" %}<input type="hidden" name="category" value="tv" />
         {% elif current == "movies" %}<input type="hidden" name="category" value="movie" />

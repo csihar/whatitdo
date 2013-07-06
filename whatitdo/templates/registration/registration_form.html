@@ -7,7 +7,7 @@
 <div class="nontable">
 		<div class="inputarea">
     <p>{{ form.non_field_errors }}</p>
-        <form action="/accounts/register/" method="POST">{% csrf_token %}
+        <form action="/accounts/register/" method="POST" autocomplete="off">{% csrf_token %}
             {{ form.as_p }}
         <p>
             <input type="submit" value="Submit" next="/" />
