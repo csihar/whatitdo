@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 	// blur title on mouseover
 	var blurtext = function() {
-	if ( $(window).width() > 888) {
+		if ( $(window).width() > 888) {
 			$(this).addClass('blurry').delay('140').queue(function() {
 				$(this).removeClass('blurry');
 				$(this).dequeue();
