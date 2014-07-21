@@ -1,5 +1,9 @@
 # Django settings for whatitdo project.
 import os
+try:
+    from localsettings import *
+except ImportError:
+    pass
 
 # Settings defined in environment variables:
 # EMAIL_HOST_PASSWORD
@@ -34,7 +38,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'whatitdo.bot@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+try:
+    EMAIL_HOST_PASSWORD
+except NameError:
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
 
 TIME_ZONE = 'America/Los_Angeles'
 
@@ -53,15 +61,21 @@ DATABASES = {
         'NAME': 'wid_db',
         'USER': 'whatitdo',
         'PASSWORD': 'w4t1td0',
-        'HOST': '',
+        'HOST': '/tmp',
         'PORT': '5432',
     }
 }
 
 # Amazon S3 settings for static and media files
 AWS_QUERYSTRING_AUTH = False
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+try:
+    AWS_ACCESS_KEY_ID
+except NameError:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+try:
+    AWS_SECRET_ACCESS_KEY
+except NameError:
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'whatitdo'
 AWS_S3_FILE_OVERWRITE = True
 AWS_LOCATION = '/media'

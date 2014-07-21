@@ -30,7 +30,7 @@ $(document).ready(function(){
 			$(this).removeClass('is_open');
 			return;
 		}
-		$(this).next().fadeToggle(300);
+		$(this).next().fadeToggle(200);
 		$(this).addClass('is_open');
 	});
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			$('.morecol').removeClass('is_open');
 			return;
 		}
-		$('.drawer').fadeOut(0).fadeToggle(300);
+		$('.drawer').fadeOut(0).fadeToggle(200);
 		$(this).addClass('all_open');
 		$('.morecol').addClass('is_open');
 	});
