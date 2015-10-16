@@ -61,7 +61,7 @@ DATABASES = {
         'NAME': 'wid_db',
         'USER': 'whatitdo',
         'PASSWORD': 'w4t1td0',
-        'HOST': '/tmp',
+        'HOST': '',
         'PORT': '5432',
     }
 }
