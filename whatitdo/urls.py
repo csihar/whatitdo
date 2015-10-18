@@ -4,8 +4,12 @@ from django.contrib.auth.views import *
 from django.http import HttpResponseRedirect
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from tastypie.api import Api
 from views import userhome, userpic, editlinks, listsort, item_list, edit_item, delete_item
+from items.api import ItemResource
 admin.autodiscover()
+
+item_resource = ItemResource()
 
 urlpatterns = patterns('whatitdo.views',
     url(r'^~?$', 'frontpage', name='frontpage'),
@@ -50,6 +54,7 @@ urlpatterns += patterns('',
     url(r'^contact/?$', 'whatitdo.views.contact'),
     url(r'^contact/thanks/?$', 'whatitdo.views.contact_thanks'),
     url(r'^users/[A-Za-z0-9]{1,30}/$', lambda x: HttpResponseRedirect('/')),
+    url(r'^api/', include(item_resource.urls)),
 )
 
 urlpatterns += staticfiles_urlpatterns()

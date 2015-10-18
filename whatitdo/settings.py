@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'registration',
     'storages',
     'easy_thumbnails',
+    'tastypie',
     'items',
     'whatitdo',
 )
