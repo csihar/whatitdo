@@ -21,7 +21,7 @@ class Item(models.Model):
 	name = models.CharField(max_length=70, validators=[ MaxLengthValidator(70) ])
 	category = models.CharField(max_length=5, choices=CATEGORY_CHOICES)
 	artist = models.CharField(max_length=70, blank=True, validators=[ MaxLengthValidator(70) ]) # use as "author" in books, "platform" in games, "studio" in tv, "director" in movies
-	type = models.CharField(max_length=50, blank=True, validators=[ MaxLengthValidator(50) ])
+	item_type = models.CharField(max_length=50, blank=True, validators=[ MaxLengthValidator(50) ])
 	progress = models.CharField(max_length=30, blank=True, validators=[ MaxLengthValidator(30) ]) # use as "year" in music, ignore in movies
 	finished = models.BooleanField(default=False)
 	rating = models.IntegerField(max_length=3, blank=True, null=True, validators=[ MinValueValidator(0),MaxValueValidator(100) ])
@@ -35,7 +35,7 @@ class EditItem(ModelForm):
         widgets = {'item_creator':HiddenInput, 'category':HiddenInput, 'created':HiddenInput, 'modified':HiddenInput,}
 		
 class ItemAdmin(admin.ModelAdmin):
-	list_display = ["category", "name", "artist", "created", "modified", "type", "progress", "finished", "rating", "comment"]
+	list_display = ["category", "name", "artist", "created", "modified", "item_type", "progress", "finished", "rating", "comment"]
 	search_fields = ["name"]
 	
 class UserProfile(models.Model):
@@ -47,7 +47,7 @@ class UserProfile(models.Model):
     SORT_CHOICES = (
         ('name','name'),
         ('artist','artist'),
-        ('type','type'),
+        ('item_type','item_type'),
         ('progress','progress'),
         ('finished','finished'),
         ('-finished','-finished'),

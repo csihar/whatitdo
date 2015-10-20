@@ -15,7 +15,7 @@ class EditItem(forms.Form):
 	created = forms.DateTimeField()
 	modified = forms.DateTimeField()	
 	artist = forms.CharField(max_length=70, required=False)
-	type = forms.CharField(max_length=50, required=False)
+	item_type = forms.CharField(max_length=50, required=False)
 	progress = forms.CharField(max_length=10, required=False)
 	finished = forms.BooleanField(required=False)
 	rating = forms.IntegerField(max_length=3, min_value=0, max_value=100, required=False)

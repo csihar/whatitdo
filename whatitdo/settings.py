@@ -9,18 +9,15 @@ except ImportError:
 # EMAIL_HOST_PASSWORD
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
+#   (local development)
+#   DEBUG
+#   DB_PASSWORD
 #   (only for local development on Mac):
 #   PGHOST = localhost
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-DEBUG = True
-# Automatically sets DEBUG to False if on Heroku server
-try:  
-    if os.environ['PYTHONPATH']=='/app' or os.environ['PYTHONPATH']=='/app/':
-        DEBUG = False
-except KeyError: 
-    pass
+DEBUG = bool(os.environ.get('DEBUG', False))
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -60,7 +57,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wid_db',
         'USER': 'whatitdo',
-        'PASSWORD': 'w4t1td0',
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': '',
         'PORT': '5432',
     }
@@ -152,6 +149,7 @@ INSTALLED_APPS = (
     'storages',
     'easy_thumbnails',
     'tastypie',
+    'south',
     'items',
     'whatitdo',
 )

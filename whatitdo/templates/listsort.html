@@ -14,7 +14,7 @@
 <select name="tvsort1" class="sortmenu">
 <option value="name" {% if tvsort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if tvsort1_old == "artist" %} selected="selected" {% endif %}>Studio</option>
-<option value="type" {% if tvsort1_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if tvsort1_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if tvsort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if tvsort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if tvsort1_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -32,7 +32,7 @@
 <select name="tvsort2" class="sortmenu">
 <option value="name" {% if tvsort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if tvsort2_old == "artist" %} selected="selected" {% endif %}>Studio</option>
-<option value="type" {% if tvsort2_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if tvsort2_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if tvsort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if tvsort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if tvsort2_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -50,7 +50,7 @@
 <select name="moviesort1" class="sortmenu">
 <option value="name" {% if moviesort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if moviesort1_old == "artist" %} selected="selected" {% endif %}>Director</option>
-<option value="type" {% if moviesort1_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if moviesort1_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if moviesort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if moviesort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if moviesort1_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -66,7 +66,7 @@
 <select name="moviesort2" class="sortmenu">
 <option value="name" {% if moviesort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if moviesort2_old == "artist" %} selected="selected" {% endif %}>Director</option>
-<option value="type" {% if moviesort2_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if moviesort2_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if moviesort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if moviesort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if moviesort2_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -82,7 +82,7 @@
 <select name="booksort1" class="sortmenu">
 <option value="name" {% if booksort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if booksort1_old == "artist" %} selected="selected" {% endif %}>Author</option>
-<option value="type" {% if booksort1_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if booksort1_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if booksort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if booksort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if booksort1_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -100,7 +100,7 @@
 <select name="booksort2" class="sortmenu">
 <option value="name" {% if booksort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if booksort2_old == "artist" %} selected="selected" {% endif %}>Author</option>
-<option value="type" {% if booksort2_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if booksort2_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if booksort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if booksort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if booksort2_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -118,7 +118,7 @@
 <select name="gamesort1" class="sortmenu">
 <option value="name" {% if gamesort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if gamesort1_old == "artist" %} selected="selected" {% endif %}>Platform</option>
-<option value="type" {% if gamesort1_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if gamesort1_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if gamesort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if gamesort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if gamesort1_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -136,7 +136,7 @@
 <select name="gamesort2" class="sortmenu">
 <option value="name" {% if gamesort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if gamesort2_old == "artist" %} selected="selected" {% endif %}>Platform</option>
-<option value="type" {% if gamesort2_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if gamesort2_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if gamesort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if gamesort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if gamesort2_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -154,7 +154,7 @@
 <select name="musicsort1" class="sortmenu">
 <option value="name" {% if musicsort1_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if musicsort1_old == "artist" %} selected="selected" {% endif %}>Artist</option>
-<option value="type" {% if musicsort1_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if musicsort1_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if musicsort1_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if musicsort1_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if musicsort1_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
@@ -170,7 +170,7 @@
 <select name="musicsort2" class="sortmenu">
 <option value="name" {% if musicsort2_old == "name" %} selected="selected" {% endif %}>Name</option>
 <option value="artist" {% if musicsort2_old == "artist" %} selected="selected" {% endif %}>Artist</option>
-<option value="type" {% if musicsort2_old == "type" %} selected="selected" {% endif %}>Type</option>
+<option value="item_type" {% if musicsort2_old == "item_type" %} selected="selected" {% endif %}>Type</option>
 <option value="comment" {% if musicsort2_old == "comment" %} selected="selected" {% endif %}>Comment</option>
 <option value="-rating" {% if musicsort2_old == "-rating" %} selected="selected" {% endif %}>Rating (descending)</option>
 <option value="rating" {% if musicsort2_old == "rating" %} selected="selected" {% endif %}>Rating (ascending)</option>
