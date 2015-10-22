@@ -4,6 +4,7 @@ from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
 
+SORT_FIELDS = ['booksort1', 'booksort2', 'gamesort1', 'gamesort2', 'moviesort1', 'moviesort2', 'musicsort1', 'musicsort2', 'tvsort1', 'tvsort2']
 
 class Migration(SchemaMigration):
 
@@ -11,10 +12,17 @@ class Migration(SchemaMigration):
         # Renaming column 'item.type' to 'item.item_type'
         db.rename_column(u'items_item', 'type', 'item_type')
 
+        # Update all sort field entries referring to 'type'
+        for sort_field in SORT_FIELDS:
+            orm.UserProfile.objects.filter(**{sort_field: 'type'}).update(**{sort_field: 'item_type'})
+
 
     def backwards(self, orm):
         # Renaming column 'item.item_type' to 'item.type'
         db.rename_column(u'items_item', 'item_type', 'type')
+
+        for sort_field in SORT_FIELDS:
+            orm.UserProfile.objects.filter(**{sort_field: 'item_type'}).update(**{sort_field: 'type'})
 
 
     models = {
