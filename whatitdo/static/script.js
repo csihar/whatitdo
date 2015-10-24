@@ -1,28 +1,21 @@
-// Main script for what.it.do
+"use strict";
 
-$(document).ready(function(){
+function turnOnButton() {
+	var category = $('div.list').attr('data-category');
+	if ($.inArray(category, ['tv', 'movies', 'books', 'games', 'music']) > -1) {
+		var buttoncls = "." + category + "button";
+		$(buttoncls).removeClass('buttonoff').addClass('buttonon');
+	}
+}
 
-	// hide drawers - visible by default in case Javascript is off
-	// $('.drawer').hide();
-
-	// fade demo blurb in
+function fadeInDemoBlurb() {
 	$('#demoblurb').ready(function() {
 		$('#demoblurb').hide();
 		$('#demoblurb').delay(300).fadeIn(1000);
 	});
+}
 
-	// blur title on mouseover
-	var blurtext = function() {
-		if ( $(window).width() > 888) {
-			$(this).addClass('blurry').delay('140').queue(function() {
-				$(this).removeClass('blurry');
-				$(this).dequeue();
-			});
-		}
-	};
-	$('h1 a').on('mouseover', blurtext);
-
-	
+function setupDrawerClick() {
 	// show/hide individual drawers
 	$('.morecol').click(function(){
 		if ($(this).hasClass('is_open')) {
@@ -45,6 +38,11 @@ $(document).ready(function(){
 		$('.drawer').fadeOut(0).fadeToggle(200);
 		$(this).addClass('all_open');
 		$('.morecol').addClass('is_open');
-	});
+	});	
+}
 
+$(document).ready(function(){
+	turnOnButton();
+	fadeInDemoBlurb();
+	setupDrawerClick();	
 });
