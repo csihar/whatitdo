@@ -9,6 +9,7 @@ except ImportError:
 # EMAIL_HOST_PASSWORD
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
+# AWS_STORAGE_BUCKET_NAME
 #   (local development)
 #   DEBUG
 #   DB_PASSWORD
@@ -73,19 +74,24 @@ try:
     AWS_SECRET_ACCESS_KEY
 except NameError:
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = 'whatitdo'
+try:
+    AWS_STORAGE_BUCKET_NAME
+except NameError:
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_FILE_OVERWRITE = True
 AWS_LOCATION = '/media'
 
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-MEDIA_URL = 'http://s3.amazonaws.com/whatitdo/media/'
-STATIC_URL = 'http://s3.amazonaws.com/whatitdo/static/'
-MEDIA_ROOT = '/media/'
-STATIC_ROOT = '/static/'
+STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+STATIC_S3_PATH = 'static'
+DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+DEFAULT_S3_PATH = 'media'
+MEDIA_URL = '//s3.amazonaws.com/{}/media/'.format(AWS_STORAGE_BUCKET_NAME)
+STATIC_URL = '//s3.amazonaws.com/{}/static/'.format(AWS_STORAGE_BUCKET_NAME)
+MEDIA_ROOT = '/{}/'.format(DEFAULT_S3_PATH)
+STATIC_ROOT = '/{}/'.format(STATIC_S3_PATH)
 
 STATICFILES_DIRS = (
-    '/static/',
+    'whatitdo/static/',
 )
 
 #switches to local static files during development
@@ -147,6 +153,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registration',
     'storages',
+    's3_folder_storage',
     'easy_thumbnails',
     'tastypie',
     'south',
